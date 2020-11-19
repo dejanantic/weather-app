@@ -30,7 +30,7 @@ const API_KEY = `62291214aadba36c71c5189a3b5c7dcf`
 const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
 
 function fetchCity(city) {
-  return fetch(window.encodeURI(`${ENDPOINT}?q=${city}&appid=${API_KEY}`))
+  return fetch(window.encodeURI(`${ENDPOINT}?q=${city}&appid=${API_KEY}&units=metric`))
     .then(res => res.json())
     .then(city => {
       if (city.message) {

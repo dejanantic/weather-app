@@ -7,7 +7,9 @@ export default class Home extends Component {
     const cities = getCities()
 
     return (
-    <Cities cityList={cities}/>
+      <div className="container">
+        <Cities cityList={cities}/>
+      </div>
     )
   }
 }
