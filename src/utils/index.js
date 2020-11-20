@@ -9,6 +9,8 @@ function updateCities(newCities) {
 }
 
 export function saveCity(city) {
+  city = city.toLowerCase()
+
   const cities = getCities()
 
   const newCities = [...cities, city]
