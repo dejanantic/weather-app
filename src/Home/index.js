@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Cities from './Cities'
-import {getCities, saveCity, deleteCity} from './utils'
+import Cities from '../Cities'
+import {getCities, saveCity, deleteCity} from '../utils'
 
 export default class Home extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class Home extends Component {
 
     return (
       <div className="container">
-        <Cities cityList={cities}/>
+        <h1>Here is something</h1>
       </div>
     )
   }

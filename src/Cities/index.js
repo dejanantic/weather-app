@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {fetchWeatherData} from './utils'
+import {fetchWeatherData} from '../utils'
 
 function CityTile({city}) {
 
