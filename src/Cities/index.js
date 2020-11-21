@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {fetchWeatherData} from '../utils'
 import CityTile from './CityTile'
+import './style.css'
 
 export default class Cities extends Component {
   state = {
@@ -41,7 +42,7 @@ export default class Cities extends Component {
       <>
         <ul className="cities-grid">
           {loading && <p>Loading...</p>}
-          {cities && cities.map(city => <li key={city.id}><CityTile city={city} /></li>)}
+          {cities && cities.map(city => <li className="cities-grid__city" key={city.id}><CityTile city={city} /></li>)}
         </ul>
       </>
     )

@@ -1,0 +1,11 @@
+.cities-grid {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cities-grid__city {
+  list-style: none;
+  margin-right: 2rem;
+}
