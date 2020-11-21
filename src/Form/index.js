@@ -34,7 +34,11 @@ export default class Form extends Component {
           value={city}
           onChange={this.handleChange}
         />
-        <input type="submit" value="Submit" />
+        <input
+          type="submit"
+          value="add"
+          disabled={!city}
+        />
       </form>
     )
   }
