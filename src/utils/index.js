@@ -28,7 +28,7 @@ export function deleteCity(removedCity) {
 
 // FETCHING DATA FROM OPEN WEATHER API
 
-const API_KEY = `62291214aadba36c71c5189a3b5c7dcf`
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
 
 function fetchCity(city) {
