@@ -1,18 +1,6 @@
 import React, {Component} from 'react'
 import {fetchWeatherData} from '../utils'
-
-function CityTile({city}) {
-
-  const {name, weather, main} = city
-
-  return (
-    <div className="city-tile">
-      <div className="city-tile__temperature">{main.temp}&#176;C</div>
-      <div className="city-tile__icon">{weather[0].description}</div>
-      <div className="city-tile__name">{name}</div>
-    </div>
-  );
-}
+import CityTile from './CityTile'
 
 export default class Cities extends Component {
   state = {
@@ -20,14 +8,30 @@ export default class Cities extends Component {
     loading: true
   }
 
+  componentDidUpdate(prevProps) {
+    const {cityList: updatedCityList} = this.props
+    if (updatedCityList !== prevProps.cityList) (
+      fetchWeatherData(updatedCityList)
+        .then(updatedCities => (
+          this.setState({
+            citiesData: [...updatedCities]
+          })
+        ))
+    )
+  }
+
   componentDidMount() {
-    fetchWeatherData(this.props.cityList)
-      .then(cities => (
-        this.setState({
-          citiesData: [...cities],
-          loading: false
-        })
-      ))
+    const {cityList} = this.props
+
+    if (cityList.length !== 0) {
+      fetchWeatherData(cityList)
+        .then(cities => (
+          this.setState({
+            citiesData: [...cities],
+            loading: false
+          })
+        ))
+    }
   }
 
   render() {

@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {saveCity} from '../utils'
 
 export default class Form extends Component {
-  state = {
-    city: ''
-  }
+  initialState = {city: ''}
+  
+  state = this.initialState
 
   handleChange = event => {
     this.setState({
@@ -13,12 +13,13 @@ export default class Form extends Component {
   }
 
   handleSubmit = event => {
-    event.preventDefault()
     const {city} = this.state
+    const {handleCityListUpdate} = this.props
+    
     saveCity(city)
-    this.setState({
-      city: ''
-    })
+    this.setState(this.initialState)
+    handleCityListUpdate()
+    event.preventDefault()
   }
   
   render() {
