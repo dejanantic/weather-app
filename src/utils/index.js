@@ -8,12 +8,16 @@ function updateCities(newCities) {
   window.localStorage.setItem("cities", JSON.stringify(newCities))
 }
 
+function checkAndRemoveDuplicates(newCities) {
+  return [...new Set(newCities)]
+}
+
 export function saveCity(city) {
   city = city.toLowerCase()
 
   const cities = getCities()
 
-  const newCities = [...cities, city]
+  const newCities = checkAndRemoveDuplicates([...cities, city])
 
   updateCities(newCities)
 }
