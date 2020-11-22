@@ -53,7 +53,7 @@ export default class CityTile extends Component {
 
     return (
       <div className="city-tile">
-        <div className="city-tile__temperature">{main.temp}&#176;C</div>
+        <div className="city-tile__temperature">{Math.round(main.temp)}&#176;C</div>
         <div className="city-tile__description">{description}</div>
         <div className="city-tile__name">{name}</div>
         <WeatherIcon size={55}/>
