@@ -3,6 +3,7 @@ import Cities from '../Cities'
 import Welcome from './Welcome'
 import Form from '../Form'
 import {getCities} from '../utils'
+import './Home.css'
 export default class Home extends Component {
   state = {
     cityList: getCities()

@@ -1,0 +1,26 @@
+.form {
+  background-color: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.form__city-input {
+  font-size: 1.6rem;
+  border: none;
+  font-family: inherit;
+  outline: none;
+}
+
+.form__button {
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.6rem;
+  background-color: #585342;
+  color: #fff;
+  font-family: inherit;
+  border-radius: var(--button-border-radius);
+}
+
+.form__button:disabled {
+  visibility: hidden;
+}

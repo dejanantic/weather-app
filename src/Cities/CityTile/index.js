@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import * as weatherIcons from 'react-icons/wi'
+import './CityTile.css'
 
 export default class CityTile extends Component {
   getWeatherIcon = (icon, rangeId) => {
@@ -53,12 +54,15 @@ export default class CityTile extends Component {
 
     return (
       <div className="city-tile">
-        <div className="city-tile__temperature">{Math.round(main.temp)}&#176;C</div>
-        <div className="city-tile__description">{description}</div>
+        <div className="city-tile__temperature">
+          {Math.round(main.temp)}
+          <span className="city-tile__degrees">&#176;</span>
+        </div>
+        <WeatherIcon className="city-tile__icon" size={35} />
+        {/* <div className="city-tile__description">{description}</div> */}
         <div className="city-tile__name">{name}</div>
-        <WeatherIcon size={55}/>
       </div>
-    )
+    );
   }
 }
 

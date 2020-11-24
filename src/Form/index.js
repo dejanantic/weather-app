@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {saveCity} from '../utils'
+import './Form.css'
 
 export default class Form extends Component {
   initialState = {city: ''}
@@ -26,8 +27,9 @@ export default class Form extends Component {
     const {city} = this.state
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <input
+          className="form__city-input"
           type="text"
           name="city"
           placeholder="Enter a city"
@@ -35,6 +37,7 @@ export default class Form extends Component {
           onChange={this.handleChange}
         />
         <input
+          className="form__button"
           type="submit"
           value="add"
           disabled={!city}

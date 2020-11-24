@@ -1,0 +1,12 @@
+.welcome {
+  font-size: 2rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-self: flex-end;
+  padding: 50% 0;
+}
+
+.welcome__icon {
+  margin-left: 1rem;
+}
