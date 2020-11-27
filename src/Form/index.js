@@ -14,13 +14,14 @@ export default class Form extends Component {
   }
 
   handleSubmit = event => {
+    event.preventDefault()
     const {city} = this.state
     const {handleCityListUpdate} = this.props
     
-    saveCity(city)
     this.setState(this.initialState)
-    handleCityListUpdate()
-    event.preventDefault()
+    
+    saveCity(city)
+      .then(handleCityListUpdate)
   }
   
   render() {
