@@ -1,9 +1,8 @@
 .city-tile {
-  font-size: 2rem;
-  width: 12rem;
-  height: 12rem;
-  margin-top: 2rem;
-  padding: 1.3rem;
+  width: 12em;
+  height: 12em;
+  margin-top: 2em;
+  padding: 1.3em;
   color: #fff;
   background: hsla(220, 72%, 25%, 0.12);
   display: flex;
@@ -14,14 +13,16 @@
 }
 
 .city-tile__temperature {
-  font-size: 2.5rem;
+  font-size: 2.5em;
 }
 
 .city-tile__icon {
+  font-size: 4.5em;
   margin-left: auto;
 }
 
 .city-tile__name {
+  font-size: 2em;
   flex-basis: 100%;
   overflow: hidden;
   white-space: nowrap;

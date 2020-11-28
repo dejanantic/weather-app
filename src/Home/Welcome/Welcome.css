@@ -1,5 +1,5 @@
 .welcome {
-  font-size: 2rem;
+  font-size: 2em;
   color: #fff;
   display: flex;
   align-items: center;
@@ -8,5 +8,5 @@
 }
 
 .welcome__icon {
-  margin-left: 1rem;
+  margin-left: 0.5em;
 }
