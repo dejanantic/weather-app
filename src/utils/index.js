@@ -74,6 +74,21 @@ export function fetchWeatherData(cities) {
   return Promise.all(cities.map(city => fetchCity(city)))
 }
 
-const exports = {getCities, saveCity, deleteCity, fetchWeatherData}
+// DATE FUNCTION
+
+export function getTimeStamp() {
+  const language = navigator.language
+  const date = new Date()
+  const day = date.getDate()
+  const month = date.getMonth() + 1
+  const hour = date.getHours()
+  const minutes = date.getMinutes()
+
+  const timestamp = `${language === 'en-US' ? (month + '/' + day) : (day + '/' + month)} ${hour}:${minutes}`
+
+  return timestamp
+}
+
+const exports = {getCities, saveCity, deleteCity, fetchWeatherData, getTimeStamp}
 
 export default exports

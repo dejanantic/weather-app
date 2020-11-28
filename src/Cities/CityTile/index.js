@@ -146,8 +146,7 @@ export default class CityTile extends Component {
           {Math.round(main.temp)}
           <span className="city-tile__degrees">&#176;</span>
         </div>
-        <WeatherIcon className="city-tile__icon" size={35} />
-        {/* <div className="city-tile__description">{description}</div> */}
+        <WeatherIcon className="city-tile__icon" />
         <div className="city-tile__name">{name}</div>
       </div>
     );

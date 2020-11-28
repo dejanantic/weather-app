@@ -1,0 +1,11 @@
+.last-update {
+  width: 100%;
+  color: #eee;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.5em;
+}
+
+.last-update__timestamp {
+  font-size: 1.2em;
+}
