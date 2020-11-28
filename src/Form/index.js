@@ -29,20 +29,22 @@ export default class Form extends Component {
 
     return (
       <form className="form" onSubmit={this.handleSubmit}>
-        <input
-          className="form__city-input"
-          type="text"
-          name="city"
-          placeholder="Enter a city"
-          value={city}
-          onChange={this.handleChange}
-        />
-        <input
-          className="form__button"
-          type="submit"
-          value="add"
-          disabled={!city}
-        />
+        <div className="form__group">
+          <input
+            className="form__city-input"
+            type="text"
+            name="city"
+            placeholder="Enter a city"
+            value={city}
+            onChange={this.handleChange}
+          />
+          <input
+            className="form__button"
+            type="submit"
+            value="add"
+            disabled={!city}
+          />
+        </div>
       </form>
     )
   }
