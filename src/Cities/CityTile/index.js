@@ -76,7 +76,7 @@ export default class CityTile extends Component {
         iconName = "WiSmoke";
         break;
       case rangeId === 721:
-        iconName = "WiDayHaze";
+        isDaytime ? iconName = "WiDayHaze" : iconName = "WiFog";
         break;
       case rangeId === 731:
         iconName = "WiDust";
