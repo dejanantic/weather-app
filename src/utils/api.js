@@ -84,12 +84,13 @@ export function getTimeStamp() {
   const hour = date.getHours()
   const minutes = date.getMinutes()
 
-  // Add a zero to the minute if it's less than 10
+  // Add a zero to the hour/minute if it's less than 10
   const updatedMinutes = minutes < 10 ? `0${minutes}` : minutes
+  const updatedHours = hour < 10 ? `0${hour}` : hour
 
-  const timestamp = `${language === 'en-US'
-    ? (month + '/' + day)
-    : (day + '/' + month)} ${hour}:${updatedMinutes}`
+  const timestamp = language === 'en-US'
+    ? `${(month + '/' + day)} ${updatedHours}:${updatedMinutes}`
+    : `${(day + '/' + month)} ${updatedHours}:${updatedMinutes}`
 
   return timestamp
 }
