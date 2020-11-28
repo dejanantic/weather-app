@@ -1,5 +1,5 @@
 import React from 'react'
-import {getTimeStamp} from '../../utils'
+import {getTimeStamp} from '../../utils/api'
 import './LastUpdate.css'
 
 export default function LastUpdate() {

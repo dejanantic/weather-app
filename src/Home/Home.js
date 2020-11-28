@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import Cities from '../Cities'
-import Welcome from './Welcome'
-import Form from '../Form'
+import Cities from '../Cities/Cities'
+import Welcome from './Welcome/Welcome'
+import Form from '../Form/Form'
 import LastUpdate from './LastUpdate/LastUpdate'
-import {getCities} from '../utils'
+import {getCities} from '../utils/api'
 import './Home.css'
 export default class Home extends Component {
   state = {

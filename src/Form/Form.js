@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {saveCity} from '../utils'
+import {saveCity} from '../utils/api'
 import './Form.css'
 
 export default class Form extends Component {

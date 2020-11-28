@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {fetchWeatherData} from '../utils'
-import CityTile from './CityTile'
+import {fetchWeatherData} from '../utils/api'
+import CityTile from './CityTile/CityTile'
 import './Cities.css'
 
 export default class Cities extends Component {
