@@ -9,10 +9,11 @@ function updateCities(newCities) {
 }
 
 function massageCity(city) {
-  const {name, id} = city
+  const {name, id, coord} = city
   return {
     name: name,
-    id: id
+    id: id,
+    coord: coord
   }
 }
 
