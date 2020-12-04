@@ -8,6 +8,7 @@
 
 :root {
   --border-radius: 1.2em;
+  --border: 1px solid #fff;
   --button-border-radius: 0.375em;
 }
 

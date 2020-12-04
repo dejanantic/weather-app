@@ -1,0 +1,222 @@
+@media screen and (min-width: 48em) {
+  .city-details__header {
+    margin-bottom: 2em;
+  }
+}
+
+.city-details__name {
+  font-size: 4em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.city-details__date {
+  font-size: 1.6em;
+  font-weight: 300;
+  margin: 0.25em 0 0;
+}
+
+.city-details__temperature-and-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 48em) {
+  .city-details__temperature-and-stats {
+    flex-direction: row;
+  }
+}
+
+.city-details__group {
+  display: flex;
+  margin-bottom: -1em;
+}
+
+@media screen and (min-width: 48em) {
+  .city-details__group {
+    padding: 0 5em 0 0;
+  }
+}
+
+.city-details__group--column {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-details__icon {
+  font-size: 13em;
+  margin-top: 0.1em;
+}
+
+.city-details__description {
+  font-size: 1.8em;
+}
+
+.city-details__temperature {
+  font-size: 10em;
+  font-weight: 200;
+}
+
+/* STATS SECTION */
+.city-details__current-stats {
+  display: flex;
+  justify-content: space-around;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  padding: 1.3em 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 48em) {
+  .city-details__current-stats {
+    border: none;
+    border-left: var(--border);
+  }
+}
+
+.city-details__stat-group:last-of-type {
+  margin-top: 1em;
+}
+
+.city-details__stat {
+  font-size: 3em;
+  margin: 0;
+}
+
+.city-details__stat-description {
+  font-size: 1.5em;
+  margin: 0;
+  margin-top: 0.2em;
+  opacity: 0.8;
+}
+
+.city-details__subheading {
+  font-size: 1.6em;
+  font-weight: 300;
+}
+
+/* DAILY WEATHER */
+.city-details__weather-by-day {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 48em) {
+  .city-details__next-five-days {
+    margin-top: 4em;
+  }
+
+  .city-details__weather-by-day {
+    flex-flow: column;
+  }
+
+  .city-details__weather-by-day > *:not(:first-child) {
+    margin-top: 1em;
+  }
+}
+
+/* HOURLY WEATHER */
+.city-details__todays-weather {
+  display: none;
+}
+
+@media screen and (min-width: 48em) {
+  .city-details__todays-weather {
+    display: block;
+    margin-top: 4em;
+  }
+}
+
+.city-details__weather-by-hour {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.city-details__weather-by-hour > * {
+  margin-left: 1em;
+}
+
+.city-details__weather-by-hour::-webkit-scrollbar {
+  display: none;
+}
+
+.city-details__weather-by-hour > :first-child {
+  margin-left: 0;
+}
+
+/* @media screen and (min-width: 64em) {
+  .city-details__weather-by-hour::-webkit-scrollbar {
+    display: block;
+  }
+} */
+
+/* WEATHER FORECAST COMPONENT */
+.weather-forecast {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7em;
+  background: hsla(200, 72%, 25%, 0.2);
+  border-radius: var(--border-radius);
+  text-align: center;
+  /* display: none; */
+}
+
+.weather-forecast__period,
+.weather-forecast__temperature,
+.weather-forecast__wind-speed,
+.weather-forecast__rain,
+.weather-forecast__hourly-range,
+.weather-forecast__range {
+  font-size: 1.4em;
+}
+
+.weather-forecast__wind-speed,
+.weather-forecast__rain,
+.weather-forecast__temperature {
+  display: none;
+}
+
+.weather-forecast__icon {
+  margin-top: 0.2em;
+  font-size: 4em;
+}
+
+.weather-forecast__description {
+  display: none;
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 48em) {
+  .weather-forecast--expandable {
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.2em;
+    padding: 0;
+  }
+
+  .weather-forecast__range {
+    display: none;
+  }
+
+  .weather-forecast__period,
+  .weather-forecast__temperature,
+  .weather-forecast__wind-speed,
+  .weather-forecast__rain {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+
+  .weather-forecast__description {
+    display: block;
+  }
+}

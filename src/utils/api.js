@@ -49,10 +49,10 @@ export function deleteCity(removedCity) {
 // FETCHING DATA FROM OPEN WEATHER API
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
-const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
 
 async function fetchCity(city) {
   try {
+    const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
     // Check whether city is a string (used to save the city) or an object (saved city)
     const query = city instanceof Object ? city.name : city
 
@@ -73,6 +73,20 @@ export function fetchWeatherData(cities) {
   if (cities.length === 0) return
 
   return Promise.all(cities.map(city => fetchCity(city)))
+}
+
+export async function fetchSingleCityDetails({ coord: {lat, lon}}) {
+  try {
+    const ENDPOINT = 'https://api.openweathermap.org/data/2.5/onecall'
+    const response = await fetch(
+      `${ENDPOINT}?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=metric&appid=${API_KEY}`
+    )
+    const cityData = await response.json()
+
+    return cityData
+  } catch (error) {
+    console.warn('Error fetching city details: ', error)
+  }
 }
 
 // DATE FUNCTION
@@ -96,6 +110,13 @@ export function getTimeStamp() {
   return timestamp
 }
 
-const exports = {getCities, saveCity, deleteCity, fetchWeatherData, getTimeStamp}
+const exports = {
+  getCities,
+  saveCity,
+  deleteCity,
+  fetchWeatherData,
+  fetchSingleCityDetails,
+  getTimeStamp
+}
 
 export default exports
