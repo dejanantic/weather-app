@@ -8,7 +8,7 @@ function WeatherForecastDaily({weather}) {
     temp,
     dt: timestamp,
     wind_speed,
-    rain
+    pop: rain
   } = weather
   const period = daysjs(timestamp * 1000).format('ddd')
   const { id, icon } = weather.weather[0]
@@ -24,7 +24,6 @@ function WeatherForecastDaily({weather}) {
       <div className="weather-forecast__icon">
         <Icon />
       </div>
-      {/* Low Temp */}
       <div className="weather-forecast__temperature">
         {Math.round(temp.min)}&#176;
         <span className="weather-forecast__description">
@@ -44,7 +43,7 @@ function WeatherForecastDaily({weather}) {
         </span>
       </div>
       <div className="weather-forecast__rain">
-        {Math.round(rain)}%
+        {rain ? Math.round(rain * 100) : 0}%
         <span className="weather-forecast__description">
           Rain
         </span>
@@ -89,6 +88,7 @@ export default function Details({cityName, cityData}) {
     td: timestamp,
     temp: currentTemperature
   } = currentWeather
+  const { pop: currentPop } = hourlyWeather[0]
   
   const {
     icon: weatherIcon,
@@ -140,14 +140,16 @@ export default function Details({cityName, cityData}) {
               <div className="city-details__stat-group">
                 <p className="city-details__stat">
                   {Math.round(todaysWeather.wind_speed)}
-                  <span style={{fontSize: ".7em"}}>km/h</span>
+                  <span style={{ fontSize: ".7em" }}>km/h</span>
                 </p>
                 <p className="city-details__stat-description">Wind</p>
               </div>
               <div className="city-details__stat-group">
                 <p className="city-details__stat">
-                  {Math.round(todaysWeather.pop)}
-                  <span style={{fontSize: ".7em"}}>%</span>
+                  {currentPop
+                    ? Math.round(currentPop * 100)
+                    : 0}
+                  <span style={{ fontSize: ".7em" }}>%</span>
                 </p>
                 <p className="city-details__stat-description">Rain</p>
               </div>
@@ -155,13 +157,13 @@ export default function Details({cityName, cityData}) {
             <div className="city-details__group--column">
               <div className="city-details__stat-group">
                 <p className="city-details__stat">
-                  {daysjs(todaysWeather.sunrise * 1000).format('HH:mm')}
+                  {daysjs(todaysWeather.sunrise * 1000).format("HH:mm")}
                 </p>
                 <p className="city-details__stat-description">Sunrise</p>
               </div>
               <div className="city-details__stat-group">
                 <p className="city-details__stat">
-                  {daysjs(todaysWeather.sunset * 1000).format('HH:mm')}
+                  {daysjs(todaysWeather.sunset * 1000).format("HH:mm")}
                 </p>
                 <p className="city-details__stat-description">Sunset</p>
               </div>
@@ -169,11 +171,9 @@ export default function Details({cityName, cityData}) {
           </div>
         </div>
         <div className="city-details__todays-weather">
-          <h2 className="city-details__subheading">
-            Today's Weather
-          </h2>
+          <h2 className="city-details__subheading">Today's Weather</h2>
           <ul className="city-details__weather-by-hour">
-            {nextSevenHours.map(hour => (
+            {nextSevenHours.map((hour) => (
               <li key={hour.dt} className="city-details__forecast-block">
                 <WeatherForecastHourly weather={hour} />
               </li>
@@ -181,11 +181,9 @@ export default function Details({cityName, cityData}) {
           </ul>
         </div>
         <div className="city-details__next-five-days">
-          <h2 className="city-details__subheading">
-            Next 5 Days
-          </h2>
+          <h2 className="city-details__subheading">Next 5 Days</h2>
           <ul className="city-details__weather-by-day">
-            {nextFiveDays.map(day => (
+            {nextFiveDays.map((day) => (
               <li key={day.dt} className="city-details__forecast-block">
                 <WeatherForecastDaily weather={day} />
               </li>

@@ -1,16 +1,17 @@
 import React from 'react'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from '../Home/Home'
 import SingleCityDetails from '../SingleCityDetails/SingleCityDetails'
 
-const Koper = {
-  name: "Koper",
-  id: 3197753,
-  coord: { lon: 13.73, lat: 45.55 },
-};
-
 export default function App() {
   return (
-    // <Home />
-    <SingleCityDetails city={Koper}/>
+    <Router>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/details">
+        <SingleCityDetails />
+      </Route>
+    </Router>
   )
 }

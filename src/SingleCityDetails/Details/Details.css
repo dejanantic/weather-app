@@ -46,7 +46,7 @@
 
 .city-details__icon {
   font-size: 13em;
-  margin-top: 0.1em;
+  margin: 0.1em 0.3em 0 0;
 }
 
 .city-details__description {

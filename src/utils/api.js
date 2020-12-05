@@ -75,7 +75,7 @@ export function fetchWeatherData(cities) {
   return Promise.all(cities.map(city => fetchCity(city)))
 }
 
-export async function fetchSingleCityDetails({ coord: {lat, lon}}) {
+export async function fetchSingleCityDetails(lat, lon) {
   try {
     const ENDPOINT = 'https://api.openweathermap.org/data/2.5/onecall'
     const response = await fetch(
