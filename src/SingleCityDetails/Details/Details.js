@@ -1,6 +1,8 @@
 import React from 'react'
 import daysjs from 'dayjs'
+import { Link } from 'react-router-dom'
 import WeatherIcon from '../../WeatherIcon/WeatherIcon'
+import { FaChevronLeft } from 'react-icons/fa'
 import './Details.css'
 
 function WeatherForecastDaily({weather}) {
@@ -8,7 +10,7 @@ function WeatherForecastDaily({weather}) {
     temp,
     dt: timestamp,
     wind_speed,
-    pop: rain
+    pop: precipitation
   } = weather
   const period = daysjs(timestamp * 1000).format('ddd')
   const { id, icon } = weather.weather[0]
@@ -43,9 +45,9 @@ function WeatherForecastDaily({weather}) {
         </span>
       </div>
       <div className="weather-forecast__rain">
-        {rain ? Math.round(rain * 100) : 0}%
+        {precipitation ? Math.round(precipitation * 100) : 0}%
         <span className="weather-forecast__description">
-          Rain
+          Precipitation
         </span>
       </div>
       <div className="weather-forecast__range">
@@ -101,12 +103,19 @@ export default function Details({cityName, cityData}) {
   return (
     <>
       <header className="city-details__header">
-        <h1 className="city-details__name">{cityName}</h1>
-        <p className="city-details__date">
-          <time dateTime={daysjs(timestamp).format("YYYY-MM-DD")}>
-            {daysjs(timestamp).format("dddd D MMMM")}
-          </time>
-        </p>
+        <div className="city-details__back-btn">
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <FaChevronLeft style={{color: "#fff"}} />
+          </Link>
+        </div>
+        <div className="city-details__header-group">
+          <h1 className="city-details__name">{cityName}</h1>
+          <p className="city-details__date">
+            <time dateTime={daysjs(timestamp).format("YYYY-MM-DD")}>
+              {daysjs(timestamp).format("dddd D MMMM")}
+            </time>
+          </p>
+        </div>
       </header>
       <main className="city-details__main">
         <div className="city-details__temperature-and-stats">
@@ -146,12 +155,10 @@ export default function Details({cityName, cityData}) {
               </div>
               <div className="city-details__stat-group">
                 <p className="city-details__stat">
-                  {currentPop
-                    ? Math.round(currentPop * 100)
-                    : 0}
+                  {currentPop ? Math.round(currentPop * 100) : 0}
                   <span style={{ fontSize: ".7em" }}>%</span>
                 </p>
-                <p className="city-details__stat-description">Rain</p>
+                <p className="city-details__stat-description">Precipitation</p>
               </div>
             </div>
             <div className="city-details__group--column">

@@ -1,3 +1,7 @@
+.city-details__header {
+  display: flex;
+}
+
 @media screen and (min-width: 48em) {
   .city-details__header {
     margin-bottom: 2em;
@@ -14,6 +18,14 @@
   font-size: 1.6em;
   font-weight: 300;
   margin: 0.25em 0 0;
+}
+
+.city-details__back-btn {
+  color: #fff;
+  font-size: 3em;
+  cursor: pointer;
+  align-self: center;
+  margin-right: 0.5em;
 }
 
 .city-details__temperature-and-stats {
