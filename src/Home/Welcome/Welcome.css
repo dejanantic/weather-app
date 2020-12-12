@@ -3,8 +3,13 @@
   color: #fff;
   display: flex;
   align-items: center;
-  justify-self: flex-end;
-  padding: 50% 0;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .welcome {
+    font-size: 3em;
+  }
 }
 
 .welcome__icon {
