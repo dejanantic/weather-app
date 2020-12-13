@@ -29,7 +29,7 @@ export default class SingleCityDetail extends Component {
     return (
       <div className="city-details">
         {loading
-          ? <Loading loadingMessage="Loading city details..."/>
+          ? <Loading loadingMessage="Loading city details"/>
           : <Details cityName={cityName} cityData={cityData} />
         }
       </div>

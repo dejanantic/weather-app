@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {fetchWeatherData} from '../utils/api'
 import CityTile from './CityTile/CityTile'
+import Loading from '../Loading/Loading'
 import './Cities.css'
 
 export default class Cities extends Component {
@@ -41,8 +42,10 @@ export default class Cities extends Component {
     return (
       <>
         <ul className="cities-grid">
-          {loading && <p>Loading...</p>}
-          {cities && cities.map(city => <li className="cities-grid__city" key={city.id}><CityTile city={city} /></li>)}
+          {loading === true
+            ? <Loading loadingMessage="Loading cities" speed={600} />
+            : cities.map(city => <li className="cities-grid__city" key={city.id}><CityTile city={city} /></li>)
+          }
         </ul>
       </>
     )
