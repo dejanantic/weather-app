@@ -21,7 +21,7 @@
 }
 
 .city-details__back-btn {
-  color: #fff;
+  color: var(--text-primary);
   font-size: 3em;
   cursor: pointer;
   align-self: center;
@@ -163,18 +163,12 @@
   margin-left: 0;
 }
 
-/* @media screen and (min-width: 64em) {
-  .city-details__weather-by-hour::-webkit-scrollbar {
-    display: block;
-  }
-} */
-
 /* WEATHER FORECAST COMPONENT */
 .weather-forecast {
   display: flex;
   flex-direction: column;
   padding: 0.7em;
-  background: hsla(200, 72%, 25%, 0.2);
+  background: var(--background-forecast);
   border-radius: var(--border-radius);
   text-align: center;
   /* display: none; */

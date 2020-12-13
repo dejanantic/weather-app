@@ -1,6 +1,6 @@
 .last-update {
   width: 100%;
-  color: #eee;
+  color: var(--text-primary);
   display: flex;
   justify-content: flex-end;
   padding-top: 0.5em;

@@ -1,7 +1,7 @@
 .form__group {
   border-radius: var(--border-radius);
   padding: 1em;
-  background-color: white;
+  background-color: var(--background-white);
   width: 100%;
   display: flex;
 }
@@ -18,8 +18,8 @@
   font-size: 1.6em;
   border: none;
   padding: 0.625em 1em;
-  background-color: #585342;
-  color: #fff;
+  background-color: var(--background-form-btn);
+  color: var(--text-primary);
   font-family: inherit;
   border-radius: var(--button-border-radius);
 }

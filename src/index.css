@@ -7,6 +7,15 @@
 }
 
 :root {
+  /* Color Variables */
+  --background-white: #fff;
+  --text-primary: #fff;
+  --background-form-btn: #585342;
+  --background-primary: #67afef;
+  --background-secondary: #5373e8;
+  --background-forecast: hsla(200, 72%, 25%, 0.2);
+
+  /* Border Variables */
   --border-radius: 1.2em;
   --border: 1px solid #fff;
   --button-border-radius: 0.375em;
@@ -17,7 +26,10 @@ html {
 }
 
 body {
-  background: linear-gradient(#67afef, #5373e8);
+  background: linear-gradient(
+    var(--background-primary),
+    var(--background-secondary)
+  );
   margin: 0;
   box-sizing: border-box;
   /* Typography */
