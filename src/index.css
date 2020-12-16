@@ -14,6 +14,7 @@
   --background-primary: #67afef;
   --background-secondary: #5373e8;
   --background-forecast: hsla(200, 72%, 25%, 0.2);
+  --simplebar-scrollbar: hsla(200, 72%, 25%, 0.8);
 
   /* Border Variables */
   --border-radius: 1.2em;

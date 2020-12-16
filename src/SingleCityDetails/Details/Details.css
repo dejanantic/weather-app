@@ -147,8 +147,8 @@
   display: flex;
   justify-content: space-between;
   list-style: none;
-  overflow-x: auto;
-  flex-wrap: nowrap;
+  /* overflow: auto; */
+  /* flex-wrap: nowrap; */
 }
 
 .city-details__weather-by-hour > * {
@@ -171,7 +171,6 @@
   background: var(--background-forecast);
   border-radius: var(--border-radius);
   text-align: center;
-  /* display: none; */
 }
 
 .weather-forecast__period,
@@ -225,4 +224,10 @@
   .weather-forecast__description {
     display: block;
   }
+}
+
+/* SCROLLBAR */
+
+.simplebar-scrollbar::before {
+  background: hsla(200, 72%, 15%, 0.5) !important;
 }

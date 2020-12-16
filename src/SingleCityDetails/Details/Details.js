@@ -2,8 +2,10 @@ import React from 'react'
 import daysjs from 'dayjs'
 import { Link } from 'react-router-dom'
 import WeatherIcon from '../../WeatherIcon/WeatherIcon'
+import SimpleBarReact from 'simplebar-react'
 import { FaChevronLeft } from 'react-icons/fa'
 import './Details.css'
+import 'simplebar/dist/simplebar.min.css'
 
 function WeatherForecastDaily({weather}) {
   const {
@@ -105,7 +107,7 @@ export default function Details({cityName, cityData}) {
       <header className="city-details__header">
         <div className="city-details__back-btn">
           <Link to="/" style={{ textDecoration: "none" }}>
-            <FaChevronLeft style={{color: "#fff"}} />
+            <FaChevronLeft style={{ color: "#fff" }} />
           </Link>
         </div>
         <div className="city-details__header-group">
@@ -179,13 +181,15 @@ export default function Details({cityName, cityData}) {
         </div>
         <div className="city-details__todays-weather">
           <h2 className="city-details__subheading">Today's Weather</h2>
-          <ul className="city-details__weather-by-hour">
-            {nextSevenHours.map((hour) => (
-              <li key={hour.dt} className="city-details__forecast-block">
-                <WeatherForecastHourly weather={hour} />
-              </li>
-            ))}
-          </ul>
+            <SimpleBarReact className="custom-scrollbar">
+              <ul className="city-details__weather-by-hour">
+                {nextSevenHours.map((hour) => (
+                  <li key={hour.dt} className="city-details__forecast-block">
+                    <WeatherForecastHourly weather={hour} />
+                  </li>
+                ))}
+              </ul>
+            </SimpleBarReact>
         </div>
         <div className="city-details__next-five-days">
           <h2 className="city-details__subheading">Next 5 Days</h2>
