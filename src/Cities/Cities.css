@@ -10,6 +10,13 @@
   gap: var(--cities-grid-gap);
 }
 
+@media screen and (max-width: 19.6875em) {
+  .cities-grid {
+    grid-template-columns: repeat(auto-fit, 10em);
+    padding: 0;
+  }
+}
+
 .cities-grid__city {
   list-style: none;
 }

@@ -10,6 +10,12 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 19.6875em) {
+  .city-tile {
+    font-size: 0.8em;
+  }
+}
+
 .city-tile__temperature {
   font-size: 2.5em;
 }

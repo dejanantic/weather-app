@@ -6,6 +6,12 @@
   padding-top: 0.5em;
 }
 
+@media screen and (max-width: 19.6875em) {
+  .last-update {
+    padding-top: 1.5em;
+  }
+}
+
 .last-update__timestamp {
   font-size: 1.2em;
 }
