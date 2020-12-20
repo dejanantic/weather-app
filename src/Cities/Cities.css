@@ -1,11 +1,13 @@
 .cities-grid {
   width: 100%;
+  max-width: 81.5em;
   margin: 0;
   padding: 1em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 12em);
+  justify-content: center;
+  gap: var(--cities-grid-gap);
 }
 
 .cities-grid__city {

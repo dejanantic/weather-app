@@ -1,3 +1,7 @@
+.form {
+  margin-bottom: 2em;
+}
+
 .form__group {
   border-radius: var(--border-radius);
   padding: 1em;
