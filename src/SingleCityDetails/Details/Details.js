@@ -181,7 +181,7 @@ export default function Details({cityName, cityData}) {
         </div>
         <div className="city-details__todays-weather">
           <h2 className="city-details__subheading">Today's Weather</h2>
-            <SimpleBarReact className="custom-scrollbar">
+            <SimpleBarReact className="custom-scrollbar" autoHide={false} forceVisible="y" >
               <ul className="city-details__weather-by-hour">
                 {nextSevenHours.map((hour) => (
                   <li key={hour.dt} className="city-details__forecast-block">

@@ -148,13 +148,19 @@
 }
 
 /* CITY DETAILS FORECAST BLOCK */
-@media screen and (min-width: 25em) and (max-width: 48em) {
+@media screen and (min-width: 25em) {
   .city-details__forecast-block {
     flex: 1 0 auto;
   }
 
   .city-details__forecast-block:not(:last-of-type) {
     margin-right: 2em;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .city-details__forecast-block:not(:last-of-type) {
+    margin-right: 0;
   }
 }
 
