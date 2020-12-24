@@ -1,23 +1,26 @@
 import React, {Component} from 'react'
 import Details from './Details/Details'
 import Loading from '../Loading/Loading'
-import {fetchSingleCityDetails} from '../utils/api'
+import Remove from '../Remove/Remove'
+import {fetchSingleCityDetails, getCityName} from '../utils/api'
 import queryString from 'query-string'
 import './SingleCityDetails.css'
 
 export default class SingleCityDetail extends Component {
   state = {
+    id: null,
     cityName: null,
     cityData: null,
     loading: true
   }
 
   componentDidMount() {
-    const { name, lat, lon } = queryString.parse(window.location.search)
-    fetchSingleCityDetails(lat, lon)
+    const { id } = queryString.parse(window.location.search)
+    fetchSingleCityDetails(id)
       .then((cityData) => (
         this.setState({
-          cityName: name,
+          id: id,
+          cityName: getCityName(id),
           cityData: cityData,
           loading: false
         })
@@ -25,13 +28,14 @@ export default class SingleCityDetail extends Component {
   }
 
   render() {
-    const {cityName, cityData, loading} = this.state
+    const {id: cityId, cityName, cityData, loading} = this.state
     return (
       <div className="city-details">
         {loading
           ? <Loading loadingMessage="Loading city details"/>
           : <Details cityName={cityName} cityData={cityData} />
         }
+        {loading === false && <Remove id={cityId} />}
       </div>
     )
   }

@@ -5,15 +5,15 @@ import './CityTile.css'
 
 export default class CityTile extends Component {
   render() {
-    const { city: { name, weather, main, coord } } = this.props
-    const {icon, id, description} = weather[0]
+    const { city: { name, weather, main, id: cityId } } = this.props
+    const {icon, id} = weather[0]
     const Icon = WeatherIcon(icon, id)
 
     return (
       <Link
         to={{
           pathname: "/details",
-          search: `?name=${name}&lat=${coord.lat}&lon=${coord.lon}`
+          search: `?id=${cityId}`
           }}
         style={{textDecoration: "none"}}
       >

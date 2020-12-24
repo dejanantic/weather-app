@@ -77,7 +77,7 @@ function WeatherForecastHourly({ weather }) {
   );
 }
 
-export default function Details({cityName, cityData}) {
+export default function Details({ cityName, cityData }) {
   const {
     current: currentWeather,
     daily: dailyWeather,

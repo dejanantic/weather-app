@@ -17,6 +17,29 @@ function massageCity(city) {
   }
 }
 
+export function getCityName(id) {
+  const cities = getCities()
+
+  const city = cities.filter(city => city.id === Number(id))
+
+  const { name } = city[0]
+
+  return name
+}
+
+function getCityCoordinates(id) {
+  const cities = getCities()
+
+  const city = cities.filter(city => city.id === Number(id))
+
+  const { coord: { lon, lat } } = city[0]
+
+  return {
+    lon,
+    lat
+  }
+}
+
 export async function saveCity(inputCity) {
   try {
     const cities = getCities()
@@ -38,10 +61,10 @@ export async function saveCity(inputCity) {
   }
 }
 
-export function deleteCity(removedCity) {
+export function deleteCity(cityId) {
   const cities = getCities()
 
-  const newCities = cities.filter(city => city !== removedCity)
+  const newCities = cities.filter(city => city.id !== Number(cityId))
 
   updateCities(newCities)
 }
@@ -75,9 +98,10 @@ export function fetchWeatherData(cities) {
   return Promise.all(cities.map(city => fetchCity(city)))
 }
 
-export async function fetchSingleCityDetails(lat, lon) {
+export async function fetchSingleCityDetails(id) {
   try {
     const ENDPOINT = 'https://api.openweathermap.org/data/2.5/onecall'
+    const { lat, lon } = getCityCoordinates(id)
     const response = await fetch(
       `${ENDPOINT}?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=metric&appid=${API_KEY}`
     )
@@ -112,6 +136,7 @@ export function getTimeStamp() {
 
 const exports = {
   getCities,
+  getCityName,
   saveCity,
   deleteCity,
   fetchWeatherData,
