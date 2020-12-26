@@ -22,6 +22,8 @@ export default class Form extends Component {
     
     saveCity(city)
       .then(handleCityListUpdate)
+      .catch(e => window.alert(e.message))
+      // insert catch to display toast notification
   }
   
   render() {

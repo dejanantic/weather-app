@@ -11,9 +11,9 @@ function updateCities(newCities) {
 function massageCity(city) {
   const {name, id, coord} = city
   return {
-    name: name,
-    id: id,
-    coord: coord
+    name,
+    id,
+    coord
   }
 }
 
@@ -50,14 +50,14 @@ export async function saveCity(inputCity) {
     const isCityInDatabase = cities.some(city => city.id === fetchedCity.id)
   
     if (isCityInDatabase) {
-      console.warn('City already in database')
+      throw new Error("City already in database");
     } else {
       const newCities = [...cities, massagedCity]
   
       updateCities(newCities)
     }
   } catch(error) {
-    console.warn('Error from saveCity function:', error)
+    throw error
   }
 }
 
@@ -74,20 +74,23 @@ export function deleteCity(cityId) {
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
 async function fetchCity(city) {
-  try {
-    const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
-    // Check whether city is a string (used to save the city) or an object (saved city)
-    const query = city instanceof Object ? city.name : city
+  const ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
+  // Check whether city is a string (used to save the city) or an object (saved city)
+  const query = city instanceof Object ? city.name : city;
 
-    if (query === undefined) throw new Error('Bad request')
+  const response = await fetch(
+    window.encodeURI(`${ENDPOINT}?q=${query}&appid=${API_KEY}&units=metric`)
+  );
 
-    const response = await fetch(window.encodeURI(`${ENDPOINT}?q=${query}&appid=${API_KEY}&units=metric`))
-    
+  if (response.status !== 200) {
+    // tk is it ok to fetch the result of failed request
+    // to get the error message
+    const result = await response.json()
+    throw new Error(result.message)
+  } else {
     const result = await response.json()
 
-    return result
-  } catch (error) {
-    console.warn('Error in fetchCity function:', error.message)
+    return result;
   }
 }
 
