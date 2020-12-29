@@ -1,0 +1,8 @@
+.Toastify__toast--info {
+  font-size: 1.5em;
+  background: linear-gradient(
+    109deg,
+    var(--background-primary),
+    var(--background-secondary)
+  );
+}

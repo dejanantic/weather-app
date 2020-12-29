@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import {saveCity} from '../utils/api'
+import { ToastContainer, toast } from 'react-toastify'
 import './Form.css'
+import 'react-toastify/dist/ReactToastify.css'
+import './CustomToast.css'
 
 export default class Form extends Component {
   initialState = {city: ''}
@@ -22,8 +25,7 @@ export default class Form extends Component {
     
     saveCity(city)
       .then(handleCityListUpdate)
-      .catch(e => window.alert(e.message))
-      // insert catch to display toast notification
+      .catch(e => toast.info(e.message))
   }
   
   render() {
@@ -47,6 +49,7 @@ export default class Form extends Component {
             disabled={!city}
           />
         </div>
+        <ToastContainer position="bottom-right" />
       </form>
     )
   }

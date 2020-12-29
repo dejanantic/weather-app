@@ -40,6 +40,12 @@ function getCityCoordinates(id) {
   }
 }
 
+function formatMessage(message) {
+  if (typeof message !== 'string') return ''
+
+  return message.charAt(0).toUpperCase() + message.slice(1)
+}
+
 export async function saveCity(inputCity) {
   try {
     const cities = getCities()
@@ -83,10 +89,8 @@ async function fetchCity(city) {
   );
 
   if (response.status !== 200) {
-    // tk is it ok to fetch the result of failed request
-    // to get the error message
     const result = await response.json()
-    throw new Error(result.message)
+    throw new Error(formatMessage(result.message))
   } else {
     const result = await response.json()
 
