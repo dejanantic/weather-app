@@ -22,7 +22,7 @@ export function getCityName(id) {
 
   const city = cities.filter(city => city.id === Number(id))
 
-  const { name } = city[0]
+  const [{ name }] = city
 
   return name
 }
@@ -32,7 +32,7 @@ function getCityCoordinates(id) {
 
   const city = cities.filter(city => city.id === Number(id))
 
-  const { coord: { lon, lat } } = city[0]
+  const [{ coord: { lon, lat } }] = city
 
   return {
     lon,
