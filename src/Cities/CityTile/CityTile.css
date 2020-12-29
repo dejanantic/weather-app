@@ -31,4 +31,5 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-bottom: 0.08em;
 }
