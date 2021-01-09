@@ -82,10 +82,11 @@ const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 async function fetchCity(city) {
   const ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
   // Check whether city is a string (used to save the city) or an object (saved city)
-  const query = city instanceof Object ? city.name : city;
+  const isCityObject = city instanceof Object
+  const query = isCityObject ? `id=${city.id}` : `q=${city}`;
 
   const response = await fetch(
-    window.encodeURI(`${ENDPOINT}?q=${query}&appid=${API_KEY}&units=metric`)
+    window.encodeURI(`${ENDPOINT}?${query}&appid=${API_KEY}&units=metric`)
   );
 
   if (response.status !== 200) {

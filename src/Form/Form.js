@@ -1,9 +1,6 @@
 import React, { useState, useRef } from "react";
-import { saveCity } from "../utils/api";
-import { ToastContainer, toast } from "react-toastify";
 import "./Form.css";
 import "react-toastify/dist/ReactToastify.css";
-import "./CustomToast.css";
 
 export default function Form({ handleCityListUpdate }) {
   const initialInput = "";
@@ -17,9 +14,7 @@ export default function Form({ handleCityListUpdate }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     setUserInput(initialInput);
-    saveCity(userInput)
-      .then(handleCityListUpdate)
-      .catch((error) => toast.info(error.message));
+    handleCityListUpdate(userInput)
   };
 
   return (
@@ -41,7 +36,6 @@ export default function Form({ handleCityListUpdate }) {
           disabled={!userInput}
         />
       </div>
-      <ToastContainer position="bottom-right" />
     </form>
   );
 }
