@@ -1,4 +1,4 @@
-import * as weatherIcons from 'react-icons/wi'
+import * as weatherIcons from "react-icons/wi";
 
 export default function WeatherIcon(icon, rangeId) {
   let iconName;
@@ -128,4 +128,4 @@ export default function WeatherIcon(icon, rangeId) {
   const weatherIconComponent = weatherIcons[iconName];
 
   return weatherIconComponent;
-};
+}

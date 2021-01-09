@@ -1,28 +1,23 @@
-import React from 'react'
-import daysjs from 'dayjs'
-import { Link } from 'react-router-dom'
-import WeatherIcon from '../../WeatherIcon/WeatherIcon'
-import SimpleBarReact from 'simplebar-react'
-import { FaChevronLeft } from 'react-icons/fa'
-import './Details.css'
-import 'simplebar/dist/simplebar.min.css'
+import React from "react";
+import daysjs from "dayjs";
+import { Link } from "react-router-dom";
+import WeatherIcon from "../../WeatherIcon/WeatherIcon";
+import SimpleBarReact from "simplebar-react";
+import { FaChevronLeft } from "react-icons/fa";
+import "./Details.css";
+import "simplebar/dist/simplebar.min.css";
 
-function WeatherForecastDaily({weather}) {
-  const {
-    temp,
-    dt: timestamp,
-    wind_speed,
-    pop: precipitation
-  } = weather
-  const period = daysjs(timestamp * 1000).format('ddd')
-  const { id, icon } = weather.weather[0]
-  const Icon = WeatherIcon(icon, id)
+function WeatherForecastDaily({ weather }) {
+  const { temp, dt: timestamp, wind_speed, pop: precipitation } = weather;
+  const period = daysjs(timestamp * 1000).format("ddd");
+  const { id, icon } = weather.weather[0];
+  const Icon = WeatherIcon(icon, id);
   return (
     <div className="weather-forecast weather-forecast--expandable">
       <div className="weather-forecast__period">
         {period}
         <span className="weather-forecast__description">
-          {daysjs(timestamp * 1000).format('D/M')}
+          {daysjs(timestamp * 1000).format("D/M")}
         </span>
       </div>
       <div className="weather-forecast__icon">
@@ -30,33 +25,25 @@ function WeatherForecastDaily({weather}) {
       </div>
       <div className="weather-forecast__temperature">
         {Math.round(temp.min)}&#176;
-        <span className="weather-forecast__description">
-          Low
-        </span>
+        <span className="weather-forecast__description">Low</span>
       </div>
       <div className="weather-forecast__temperature">
         {Math.round(temp.max)}&#176;
-        <span className="weather-forecast__description">
-          High
-        </span>
+        <span className="weather-forecast__description">High</span>
       </div>
       <div className="weather-forecast__wind-speed">
         {Math.round(wind_speed)}km/h
-        <span className="weather-forecast__description">
-          Wind
-        </span>
+        <span className="weather-forecast__description">Wind</span>
       </div>
       <div className="weather-forecast__rain">
         {precipitation ? Math.round(precipitation * 100) : 0}%
-        <span className="weather-forecast__description">
-          Precipitation
-        </span>
+        <span className="weather-forecast__description">Precipitation</span>
       </div>
       <div className="weather-forecast__range">
         {`${Math.round(temp.min)}-${Math.round(temp.max)}`}&#176;
       </div>
     </div>
-  )
+  );
 }
 
 function WeatherForecastHourly({ weather }) {
@@ -81,27 +68,24 @@ export default function Details({ cityName, cityData }) {
   const {
     current: currentWeather,
     daily: dailyWeather,
-    hourly: hourlyWeather
-  } = cityData
+    hourly: hourlyWeather,
+  } = cityData;
 
-  const todaysWeather = dailyWeather[0]
-  const nextFiveDays = dailyWeather.slice(1, -2)
-  const nextSevenHours = hourlyWeather.slice(1, 25)
+  const todaysWeather = dailyWeather[0];
+  const nextFiveDays = dailyWeather.slice(1, -2);
+  const nextSevenHours = hourlyWeather.slice(1, 25);
 
-  const {
-    td: timestamp,
-    temp: currentTemperature
-  } = currentWeather
-  const { pop: currentPop } = hourlyWeather[0]
-  
+  const { td: timestamp, temp: currentTemperature } = currentWeather;
+  const { pop: currentPop } = hourlyWeather[0];
+
   const {
     icon: weatherIcon,
     id: weatherId,
-    description
-  } = currentWeather.weather[0]
-  
-  const IconComponent = WeatherIcon(weatherIcon, weatherId)
-  
+    description,
+  } = currentWeather.weather[0];
+
+  const IconComponent = WeatherIcon(weatherIcon, weatherId);
+
   return (
     <>
       <header className="city-details__header">
@@ -181,15 +165,19 @@ export default function Details({ cityName, cityData }) {
         </div>
         <div className="city-details__todays-weather">
           <h2 className="city-details__subheading">Today's Weather</h2>
-            <SimpleBarReact className="custom-scrollbar" autoHide={false} forceVisible="y" >
-              <ul className="city-details__weather-by-hour">
-                {nextSevenHours.map((hour) => (
-                  <li key={hour.dt} className="city-details__forecast-block">
-                    <WeatherForecastHourly weather={hour} />
-                  </li>
-                ))}
-              </ul>
-            </SimpleBarReact>
+          <SimpleBarReact
+            className="custom-scrollbar"
+            autoHide={false}
+            forceVisible="y"
+          >
+            <ul className="city-details__weather-by-hour">
+              {nextSevenHours.map((hour) => (
+                <li key={hour.dt} className="city-details__forecast-block">
+                  <WeatherForecastHourly weather={hour} />
+                </li>
+              ))}
+            </ul>
+          </SimpleBarReact>
         </div>
         <div className="city-details__next-five-days">
           <h2 className="city-details__subheading">Next 5 Days</h2>
