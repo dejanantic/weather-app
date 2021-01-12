@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import Header from '../Header/Header'
 import Cities from "../Cities/Cities";
 import Welcome from "./Welcome/Welcome";
-import Form from "../Form/Form";
 import LastUpdate from "./LastUpdate/LastUpdate";
 import { ToastContainer, toast } from "react-toastify";
 import { getCities, saveCity } from "../utils/api";
@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <Form handleCityListUpdate={handleCityListUpdate} />
+      <Header handleCityListUpdate={handleCityListUpdate} />
       {isCityListEmpty ? (
         <Welcome />
       ) : (

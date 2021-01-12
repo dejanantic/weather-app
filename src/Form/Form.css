@@ -1,12 +1,12 @@
 .form {
-  margin-bottom: 2em;
+  width: 100%;
 }
 
-@media screen and (max-width: 19.6875em) {
+/* @media screen and (max-width: 19.6875em) {
   .form {
     width: 100%;
   }
-}
+} */
 
 .form__group {
   border-radius: var(--border-radius);
