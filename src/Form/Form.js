@@ -1,20 +1,27 @@
-import React, { useState, useRef } from "react";
-// import { FaSearch } from 'react-icons/fa'
+import React, { useState } from "react";
 import "./Form.css";
 
-export default function Form({ handleCityListUpdate, cityRef }) {
-  const initialInput = "";
-  const [userInput, setUserInput] = useState(initialInput);
-  const inputRef = useRef();
+export default function Form({ handleCityListUpdate }) {
+  const [userInput, setUserInput] = useState({
+    city: "",
+    country: ""
+  });
 
   const handleChange = (event) => {
-    setUserInput(inputRef.current.value);
+    const value = event.target.value;
+    setUserInput(state => ({
+      ...state,
+      [event.target.name]: value
+    }))
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUserInput(initialInput);
     handleCityListUpdate(userInput)
+    setUserInput({
+      city: "",
+      country: "",
+    });
   };
 
   return (
@@ -26,8 +33,7 @@ export default function Form({ handleCityListUpdate, cityRef }) {
           name="city"
           id="city"
           placeholder="city"
-          ref={inputRef}
-          value={userInput}
+          value={userInput.city}
           onChange={handleChange}
         />
         <input
@@ -36,13 +42,14 @@ export default function Form({ handleCityListUpdate, cityRef }) {
           name="country"
           id="country"
           placeholder="country"
-          // insert methods
+          value={userInput.country}
+          onChange={handleChange}
         />
         <input
           className="form__button"
           type="submit"
           value="add"
-          disabled={!userInput}
+          disabled={!userInput.city}
         />
       </div>
     </form>

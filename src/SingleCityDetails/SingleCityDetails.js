@@ -26,7 +26,7 @@ function singleCityReducer(state, action) {
 
 export default function SingleCityDetail() {
   const { id } = queryString.parse(window.location.search);
-  const cityName = getCityName(id);
+  const { name, country } = getCityName(id);
   const [{ cityData, loading, error }, dispatch] = useReducer(
     singleCityReducer,
     { cityData: null, loading: true, error: null }
@@ -55,7 +55,7 @@ export default function SingleCityDetail() {
       {loading ? (
         <Loading loadingMessage="Loading city details" />
       ) : (
-        <Details cityName={cityName} cityData={cityData} />
+        <Details cityName={{ name, country }} cityData={cityData} />
       )}
       {loading === false && <Remove id={id} />}
     </div>

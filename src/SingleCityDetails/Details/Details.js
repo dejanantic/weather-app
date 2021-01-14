@@ -64,7 +64,7 @@ function WeatherForecastHourly({ weather }) {
   );
 }
 
-export default function Details({ cityName, cityData }) {
+export default function Details({ cityName: { name, country }, cityData }) {
   const {
     current: currentWeather,
     daily: dailyWeather,
@@ -95,7 +95,7 @@ export default function Details({ cityName, cityData }) {
           </Link>
         </div>
         <div className="city-details__header-group">
-          <h1 className="city-details__name">{cityName}</h1>
+          <h1 className="city-details__name">{name}, {country}</h1>
           <p className="city-details__date">
             <time dateTime={daysjs(timestamp).format("YYYY-MM-DD")}>
               {daysjs(timestamp).format("dddd D MMMM")}

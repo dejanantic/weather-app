@@ -1,3 +1,4 @@
+import countryLookup from 'country-code-lookup'
 // LOCAL STORAGE API
 
 export function getCities() {
@@ -9,9 +10,10 @@ function updateCities(newCities) {
 }
 
 function massageCity(city) {
-  const {name, id, coord} = city
+  const {name, id, coord, sys: { country }} = city
   return {
     name,
+    country,
     id,
     coord
   }
@@ -22,9 +24,9 @@ export function getCityName(id) {
 
   const city = cities.filter(city => city.id === Number(id))
 
-  const [{ name }] = city
+  const [{ name, country }] = city
 
-  return name
+  return { name, country }
 }
 
 function getCityCoordinates(id) {
@@ -46,11 +48,22 @@ function formatMessage(message) {
   return message.charAt(0).toUpperCase() + message.slice(1)
 }
 
-export async function saveCity(inputCity) {
+function getCountryCode(country) {
+  const countryCapitalized = country.charAt(0).toUpperCase() + country.slice(1)
+  const countryObject = countryLookup.byCountry(countryCapitalized)
+
+  const countryCode = countryObject !== null ? countryObject.iso2 : countryObject
+
+  return countryCode;
+}
+
+export async function saveCity(cityDetails) {
   try {
     const cities = getCities()
-  
-    const fetchedCity = await fetchCity(inputCity.toLowerCase())
+    const { city, country } = cityDetails
+    const countryCode = getCountryCode(country)
+
+    const fetchedCity = await fetchCity({ city, countryCode })
     const massagedCity = massageCity(fetchedCity)
   
     const isCityInDatabase = cities.some(city => city.id === fetchedCity.id)
@@ -79,11 +92,14 @@ export function deleteCity(cityId) {
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
-async function fetchCity(city) {
+async function fetchCity(cityObj) {
   const ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
   // Check whether city is a string (used to save the city) or an object (saved city)
-  const isCityObject = city instanceof Object
-  const query = isCityObject ? `id=${city.id}` : `q=${city}`;
+  const isInitialFetch = cityObj.id === undefined && true
+  // If country was not entered correctly, country will be equal no NULL
+  const query = isInitialFetch
+    ? `q=${cityObj.city}${cityObj.countryCode ? `,${cityObj.countryCode}` : ''}`
+    : `id=${cityObj.id}`;
 
   const response = await fetch(
     window.encodeURI(`${ENDPOINT}?${query}&appid=${API_KEY}&units=metric`)
