@@ -19,6 +19,9 @@
   /* Border Variables */
   --border-radius: 1.2em;
   --border: 1px solid #fff;
+  --border-form: 2px solid #fff;
+  --border-input: 1px solid rgba(103, 175, 239, 0.3);
+  --border-input-focus: 3px solid #67afef;
   --button-border-radius: 0.375em;
 
   /* Cities Grid */

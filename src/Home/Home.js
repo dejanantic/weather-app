@@ -6,6 +6,7 @@ import LastUpdate from "./LastUpdate/LastUpdate";
 import { ToastContainer, toast } from "react-toastify";
 import { getCities, saveCity } from "../utils/api";
 import "./Home.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./CustomToast.css";
 
 export default function Home() {

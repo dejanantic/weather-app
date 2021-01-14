@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Form from "../Form/Form";
-import { FaCog } from "react-icons/fa";
+import { FaCog, FaPlus } from "react-icons/fa";
 import "./Header.css";
 
 export default function Header({ handleCityListUpdate }) {
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const formContainerRef = useRef(null);
+
   return (
     <div className="header">
       <div className="logo">
@@ -16,10 +19,19 @@ export default function Header({ handleCityListUpdate }) {
         </span>
       </div>
 
-      <Form handleCityListUpdate={handleCityListUpdate} />
+      <div className="header__form-container" ref={formContainerRef}>
+        <Form handleCityListUpdate={handleCityListUpdate} />
+      </div>
 
-      {/* Make cog icon a link to settings page */}
-      <FaCog className="header__icon" />
+      <div className="header__icons">
+        <FaPlus
+          className="header__icon"
+          onClick={() =>
+            formContainerRef.current.querySelector("#city").focus()
+          }
+        />
+        <FaCog className="header__icon" />
+      </div>
     </div>
   );
 }
