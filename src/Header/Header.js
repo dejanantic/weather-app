@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import { FaCog, FaPlus } from "react-icons/fa";
 import "./Header.css";
 
 export default function Header({ handleCityListUpdate }) {
-  const [isFormVisible, setIsFormVisible] = useState(false);
   const formContainerRef = useRef(null);
 
   return (
