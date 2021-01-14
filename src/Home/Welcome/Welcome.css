@@ -12,6 +12,8 @@
   }
 }
 
-.welcome__icon {
-  margin-left: 0.5em;
+.welcome__emoji {
+  font-size: 1.2em;
+  margin-left: 0.2em;
+  padding-bottom: 0.4em;
 }
