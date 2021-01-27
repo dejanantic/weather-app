@@ -90,7 +90,7 @@ export function deleteCity(cityId) {
 
 // FETCHING DATA FROM OPEN WEATHER API
 
-const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
+const API_KEY = "11cc7fc2dbdbbe8ba9c7764860af6092";
 
 async function fetchCity(cityObj) {
   const ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
