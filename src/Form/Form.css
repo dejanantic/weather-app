@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 2em;
+  padding: 1.3em;
   background: var(--background-white);
   border-radius: var(--border-radius);
 }
@@ -20,20 +20,21 @@
   outline: none;
   background-color: transparent;
   border-bottom: var(--border-input);
-  padding: 0 0 0.2em;
+  margin-right: 0.5em;
   transition: border-bottom 0.2s linear;
+}
+
+@media screen and (min-width: 28.125em) {
+  .form__input {
+    margin-right: 1.2em;
+  }
 }
 
 .form__input:focus {
   border-bottom: var(--border-input-focus);
 }
 
-.form__input:first-of-type {
-  margin-right: 1em;
-}
-
 .form__button {
-  display: none;
   font-size: 1.6em;
   border: none;
   padding: 0.625em 1em;
@@ -41,8 +42,10 @@
   color: var(--text-primary);
   font-family: inherit;
   border-radius: var(--button-border-radius);
+  transition: background 0.2s ease;
 }
 
 .form__button:disabled {
-  visibility: hidden;
+  background: #f2f2f2;
+  color: #c7c7c7;
 }
