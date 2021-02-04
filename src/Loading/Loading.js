@@ -8,7 +8,6 @@ export default function Loading({ loadingMessage = "Loading", speed = 600 }) {
 
   useEffect(() => {
     id.current = window.setInterval(() => {
-      console.log("interval running");
       message === `${initialMessage}...`
         ? setMessage(initialMessage)
         : setMessage((message) => `${message}.`);

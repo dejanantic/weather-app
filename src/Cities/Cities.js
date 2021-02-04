@@ -40,7 +40,7 @@ export default function Cities({ cityList }) {
   }, [cityList]);
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="cities__error">{error}</p>;
   }
 
   return (

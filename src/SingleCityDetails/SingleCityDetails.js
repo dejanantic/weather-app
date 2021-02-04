@@ -51,13 +51,15 @@ export default function SingleCityDetail() {
   }
 
   return (
-    <div className="city-details">
+    <>
       {loading ? (
         <Loading loadingMessage="Loading city details" />
       ) : (
-        <Details cityName={{ name, country }} cityData={cityData} />
+        <div className="city-details">
+          <Details cityName={{ name, country }} cityData={cityData} />
+          <Remove id={id} />
+        </div>
       )}
-      {loading === false && <Remove id={id} />}
-    </div>
+    </>
   );
 }

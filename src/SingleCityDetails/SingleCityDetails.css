@@ -1,5 +1,7 @@
 .city-details {
   color: #fff;
+  width: 100%;
+  max-width: var(--content-max-width);
   /* padding: 2em;
   min-height: 100vh;
   display: flex;
@@ -9,7 +11,6 @@
 @media screen and (min-width: 64em) {
   .city-details {
     font-size: 1.3em;
-    max-width: 81.5em;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
 }

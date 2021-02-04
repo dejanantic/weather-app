@@ -24,6 +24,9 @@
   --border-input-focus: 3px solid #67afef;
   --button-border-radius: 0.375em;
 
+  /* Content */
+  --content-max-width: 81.5em;
+
   /* Cities Grid */
   --cities-grid-gap: 1.5em;
 }
