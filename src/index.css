@@ -9,8 +9,12 @@
 :root {
   /* Color Variables */
   --background-white: #fff;
+  --background-orangeyellow: #ffd166;
   --text-primary: #fff;
+  --text-dark: #000;
   --background-form-btn: #585342;
+  --background-signup-btn: #001011;
+  --background-signup-btn-alt: var(--background-orangeyellow);
   --background-primary: #67afef;
   --background-secondary: #5373e8;
   --background-forecast: hsla(200, 72%, 25%, 0.2);
@@ -18,14 +22,22 @@
 
   /* Border Variables */
   --border-radius: 1.2em;
-  --border: 1px solid #fff;
-  --border-form: 2px solid #fff;
+  --border: 1px solid var(--background-white);
+  --border-form: 2px solid var(--background-white);
   --border-input: 1px solid rgba(103, 175, 239, 0.3);
   --border-input-focus: 3px solid #67afef;
+  --border-link: 3px solid var(--background-orangeyellow);
+  --border-signup-input: none;
+  --border-signup-input-radius: 5px;
   --button-border-radius: 0.375em;
 
   /* Content */
   --content-max-width: 81.5em;
+
+  /* Signup/Login Variables */
+  --signup-divider-height: 1px;
+  --signup-divider-opacity: 0.4;
+  --link-background-color: var(--background-orangeyellow);
 
   /* Cities Grid */
   --cities-grid-gap: 1.5em;

@@ -10,15 +10,15 @@ import './App.css'
 export default function App() {
   return (
     <div className="container">
-      <Router>
+      {/* <Router>
         <Route exact path="/">
           <Home />
         </Route>
         <Route path="/details">
           <SingleCityDetails />
         </Route>
-      </Router>
-      {/* <Signup /> */}
+      </Router> */}
+      <Signup />
     </div>
   );
 }
