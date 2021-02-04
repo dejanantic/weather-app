@@ -81,7 +81,7 @@ export default function Details({ cityName: { name, country }, cityData }) {
   const {
     icon: weatherIcon,
     id: weatherId,
-    description,
+    main: description,
   } = currentWeather.weather[0];
 
   const IconComponent = WeatherIcon(weatherIcon, weatherId);
