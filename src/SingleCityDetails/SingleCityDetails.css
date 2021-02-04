@@ -1,15 +1,15 @@
 .city-details {
   color: #fff;
-  padding: 2em;
+  /* padding: 2em;
   min-height: 100vh;
   display: flex;
-  flex-flow: column;
+  flex-flow: column; */
 }
 
 @media screen and (min-width: 64em) {
   .city-details {
     font-size: 1.3em;
-    max-width: 80em;
+    max-width: 81.5em;
     margin: 0 auto;
   }
 }
