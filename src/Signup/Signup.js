@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Logo from "../Logo/Logo";
 import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 
 export default function Signup() {
@@ -17,8 +16,9 @@ export default function Signup() {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      setError("Passwords do not match");
-      toast.error(error);
+      const errorMessage = "Passwords do not match"
+      setError(errorMessage);
+      toast.error(errorMessage);
       passwordRef.current.value = "";
       passwordRef.current.focus();
       passwordConfirmRef.current.value = "";
@@ -30,8 +30,8 @@ export default function Signup() {
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
     } catch (e) {
-      setError("Failed to create an account.");
       toast.error(e.message);
+      setError(e.message);
     }
 
     setLoading(false);
