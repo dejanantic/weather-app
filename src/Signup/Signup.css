@@ -44,6 +44,12 @@
   cursor: pointer;
 }
 
+.signup__form-submit:disabled {
+  cursor: not-allowed;
+  background-color: #ffe4a5;
+  color: #ccc;
+}
+
 .signup__divider {
   margin: 2.5em 0 2em;
   background-color: var(--background-white);
