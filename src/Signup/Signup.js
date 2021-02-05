@@ -1,11 +1,35 @@
 import React, { useState, useRef } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import Logo from "../Logo/Logo";
 import "./Signup.css";
 
 export default function Signup() {
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const { signup } = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Passwords do not match')
+    }
+
+    
+    try {
+      setError('')
+      setLoading(true)
+      await signup(emailRef.current.value, passwordRef.current.value)
+    } catch (error) {
+      setError('Failed to create an account.')
+      console.warn(error.message)
+    }
+
+    setLoading(false)
+  }
 
   return (
     <div className="signup">
@@ -13,7 +37,7 @@ export default function Signup() {
         <Logo />
       </header>
       <div className="signup__form-container">
-        <form className="signup__form">
+        <form className="signup__form" onSubmit={handleSubmit}>
           <div className="signup__form-group">
             <input
               ref={emailRef}
@@ -48,7 +72,12 @@ export default function Signup() {
             />
           </div>
           <div className="signup__form-group">
-            <button type="submit" className="signup__form-submit">
+            <button
+              disabled={loading}
+              type="submit"
+              className="signup__form-submit"
+              onClick={handleSubmit}
+            >
               sign up
             </button>
           </div>
