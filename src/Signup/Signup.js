@@ -1,11 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Logo from "../Logo/Logo";
+import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 
 export default function Signup() {
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { signup } = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -15,20 +17,24 @@ export default function Signup() {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('Passwords do not match')
+      setError("Passwords do not match");
+      toast.error(error);
+      passwordRef.current.value = "";
+      passwordRef.current.focus();
+      passwordConfirmRef.current.value = "";
+      return;
     }
 
-    
     try {
-      setError('')
-      setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
-    } catch (error) {
-      setError('Failed to create an account.')
-      console.warn(error.message)
+      setError("");
+      setLoading(true);
+      await signup(emailRef.current.value, passwordRef.current.value);
+    } catch (e) {
+      setError("Failed to create an account.");
+      toast.error(e.message);
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   return (

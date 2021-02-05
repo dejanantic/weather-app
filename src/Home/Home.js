@@ -3,11 +3,9 @@ import Header from "../Header/Header";
 import Cities from "../Cities/Cities";
 import Welcome from "./Welcome/Welcome";
 import LastUpdate from "./LastUpdate/LastUpdate";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { getCities, saveCity } from "../utils/api";
 // import "./Home.css";
-import "react-toastify/dist/ReactToastify.css";
-import "./CustomToast.css";
 
 export default function Home() {
   const [cityList, setCityList] = useState(() => getCities());
@@ -15,7 +13,7 @@ export default function Home() {
   const handleCityListUpdate = (city) => {
     saveCity(city)
       .then(() => setCityList(getCities()))
-      .catch((error) => toast.info(error.message));
+      .catch((error) => toast.error(error.message));
   };
 
   const isCityListEmpty = cityList.length === 0 ? true : false;
@@ -31,7 +29,6 @@ export default function Home() {
           <LastUpdate />
         </>
       )}
-      <ToastContainer position="bottom-right" />
     </>
   );
 }
