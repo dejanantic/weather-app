@@ -1,15 +1,17 @@
 import React, { useState, useRef } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Logo from "../Logo/Logo";
 import { toast } from "react-toastify";
-import "./Login.css"
+import "./Login.css";
 
 export default function Login() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
+  const { login } = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
+  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +19,8 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
     } catch (e) {
       toast.error(e.message);
       setError(e.message);
@@ -62,7 +65,7 @@ export default function Login() {
               className="login__form-submit"
               onClick={handleSubmit}
             >
-              sign up
+              log in
             </button>
           </div>
         </form>
@@ -71,9 +74,9 @@ export default function Login() {
       <div className="login__to-login">
         <p className="login__text">
           Need an account?{" "}
-          <a href="#" className="login__signup-link">
+          <Link className="login__signup-link" to="/signup">
             sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>

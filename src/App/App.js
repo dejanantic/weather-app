@@ -18,16 +18,10 @@ export default function App() {
         <AuthProvider>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/details" component={SingleCityDetails} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
           </Switch>
-          {/* <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/details">
-            <SingleCityDetails />
-          </Route> */}
-          {/* <Signup /> */}
         </AuthProvider>
       </Router>
       <ToastContainer position="bottom-right" />

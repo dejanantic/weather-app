@@ -3,6 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import Logo from "../Logo/Logo";
 import { toast } from "react-toastify";
 import "./Signup.css";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Signup() {
   const [error, setError] = useState(null);
@@ -11,12 +12,13 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      const errorMessage = "Passwords do not match"
+      const errorMessage = "Passwords do not match";
       setError(errorMessage);
       toast.error(errorMessage);
       passwordRef.current.value = "";
@@ -29,6 +31,7 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
     } catch (e) {
       toast.error(e.message);
       setError(e.message);
@@ -93,9 +96,9 @@ export default function Signup() {
       <div className="signup__to-login">
         <p className="signup__text">
           Already have an account?{" "}
-          <a href="#" className="signup__login-link">
+          <Link className="signup__login-link" to="/login">
             log in
-          </a>
+          </Link>
         </p>
       </div>
     </div>
