@@ -34,20 +34,19 @@
   padding: 1em 0;
   font-size: 1.6em;
   font-weight: bold;
-  color: var(--text-primary);
-  color: black;
+  color: var(--text-dark);
   background: none;
   border: none;
   border-radius: var(--border-signup-input-radius);
   text-transform: capitalize;
-  background-color: var(--background-signup-btn-alt);
+  background-color: var(--background-btn-main);
   cursor: pointer;
 }
 
 .login__form-submit:disabled {
   cursor: not-allowed;
-  background-color: #ffe4a5;
-  color: #ccc;
+  background-color: var(--background-btn-disabled);
+  color: var(--text-btn-disabled);
 }
 
 .login__divider {
