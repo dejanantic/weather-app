@@ -1,0 +1,12 @@
+.delete-account__delete {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--button-border-radius);
+  background-color: var(--background-red);
+  color: var(--background-white);
+  padding: var(--button-padding);
+}

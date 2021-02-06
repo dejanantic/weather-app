@@ -28,16 +28,34 @@ export default function Header({ handleCityListUpdate }) {
         <Form handleCityListUpdate={handleCityListUpdate} />
       </div>
 
-      <div className="header__icons">
-        <FaPlus
-          className="header__icon"
-          onClick={() =>
-            formContainerRef.current.querySelector("#city").focus()
-          }
-        />
-        <FaCog className="header__icon" />
-        <FaSignOutAlt className="header__icon" onClick={() => handleLogout()} />
-      </div>
+      <nav className="header__nav">
+        <ul className="header__nav-container">
+          <li className="header__nav-item">
+            <button
+              className="header__nav-button"
+              onClick={() =>
+                formContainerRef.current.querySelector("#city").focus()
+              }
+            >
+              <FaPlus id="add-city" className="header__icon" />
+            </button>
+          </li>
+          <li className="header__nav-item">
+            <Link className="header__nav-link" to="/settings">
+              <FaCog id="settings" className="header__icon" />
+            </Link>
+          </li>
+          <li className="header__nav-item">
+            <button className="header__nav-button">
+              <FaSignOutAlt
+                id="logout"
+                className="header__icon"
+                onClick={() => handleLogout()}
+              />
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }

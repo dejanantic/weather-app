@@ -10,6 +10,7 @@
   /* Color Variables */
   --background-white: #fff;
   --background-orangeyellow: #ffd166;
+  --background-red: #e44545;
   --background-dark-grey: #2b2d42;
   --text-primary: #fff;
   --text-dark: #000;
@@ -34,15 +35,16 @@
   --border-signup-input-radius: 5px;
   --button-border-radius: 0.375em;
 
+  /* Spacing */
+  --button-padding: 1em;
+  --cities-grid-gap: 1.5em;
+
   /* Content */
   --content-max-width: 81.5em;
 
   /* Signup/Login Variables */
   --signup-divider-height: 1px;
   --signup-divider-opacity: 0.4;
-
-  /* Cities Grid */
-  --cities-grid-gap: 1.5em;
 }
 
 html {
