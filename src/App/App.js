@@ -8,6 +8,7 @@ import Login from "../Login/Login"
 import SingleCityDetails from "../SingleCityDetails/SingleCityDetails";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import ForgotPassword from "../ForgotPassword/ForgotPassword";
 
 // Add lazy loading of components
 
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/details" component={SingleCityDetails} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
+            <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </AuthProvider>
       </Router>

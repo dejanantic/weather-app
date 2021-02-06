@@ -70,6 +70,13 @@ export default function Login() {
           </div>
         </form>
       </div>
+      <div className="login__forgot-password">
+        <p className="login__text">
+          <Link className="login__forgot-link" to="/forgot-password">
+            forgot password?
+          </Link>
+        </p>
+      </div>
       <div className="login__divider"></div>
       <div className="login__to-login">
         <p className="login__text">
