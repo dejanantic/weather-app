@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import Home from "../Home/Home";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login"
@@ -18,7 +19,7 @@ export default function App() {
       <Router>
         <AuthProvider>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <PrivateRoute exact path="/" component={Home} />
             <Route path="/details" component={SingleCityDetails} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />

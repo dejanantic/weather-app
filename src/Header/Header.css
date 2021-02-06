@@ -54,6 +54,6 @@
   }
 }
 
-.header__icon:first-of-type {
-  margin-right: 0.7em;
+.header__icon:not(:first-child) {
+  margin-left: 0.7em;
 }
