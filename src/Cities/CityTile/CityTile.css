@@ -1,6 +1,6 @@
 .city-tile {
   height: 12em;
-  padding: 1.3em;
+  padding: var(--city-tile-padding);
   color: #fff;
   background: hsla(220, 72%, 25%, 0.12);
   display: flex;

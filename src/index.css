@@ -22,7 +22,11 @@
   --background-primary: #67afef;
   --background-secondary: #5373e8;
   --background-forecast: hsla(200, 72%, 25%, 0.2);
+  --background-placeholder: hsla(200, 72%, 25%, 0.2);
   --simplebar-scrollbar: hsla(200, 72%, 25%, 0.8);
+
+  /* Fonts */
+  --btn-font-size: 1.6em;
 
   /* Border Variables */
   --border-radius: 1.2em;
@@ -36,6 +40,8 @@
   --button-border-radius: 0.375em;
 
   /* Spacing */
+  --city-tile-padding: 1.3em;
+  --test-padding: calc(1em * 1.3);
   --button-padding: 1em;
   --cities-grid-gap: 1.5em;
 

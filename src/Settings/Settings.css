@@ -1,20 +1,28 @@
 .settings {
-  /* outline: 1px solid red; */
   width: 100%;
   max-width: var(--content-max-width);
   display: flex;
   flex-flow: column nowrap;
-  font-size: 1.6em;
   color: var(--text-primary);
 }
 
 .settings__title {
+  font-size: 3.2em;
   text-align: center;
   font-weight: 400;
   text-transform: capitalize;
 }
 
 .settings__setting-title {
+  font-size: 2.4em;
   text-transform: capitalize;
   font-weight: 300;
+}
+
+.settings__placeholder {
+  width: 100%;
+  background: var(--background-placeholder);
+  border-radius: var(--border-radius);
+  font-size: 1.6em;
+  padding: var(--test-padding);
 }
