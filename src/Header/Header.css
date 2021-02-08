@@ -79,3 +79,10 @@
 .header__icon {
   color: var(--text-primary);
 }
+
+.header__logo-link:link,
+.header__logo-link:visited,
+.header__logo-link:hover,
+.header__logo-link:active {
+  text-decoration: none;
+}

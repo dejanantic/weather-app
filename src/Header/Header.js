@@ -23,7 +23,9 @@ export default function Header({ handleCityListUpdate }) {
 
   return (
     <div className="header">
-      <Logo />
+      <Link className="header__logo-link" to="/">
+        <Logo />
+      </Link>
       <div className="header__form-container" ref={formContainerRef}>
         <Form handleCityListUpdate={handleCityListUpdate} />
       </div>
