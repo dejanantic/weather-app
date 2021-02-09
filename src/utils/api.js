@@ -1,5 +1,6 @@
 import countryLookup from 'country-code-lookup'
-// LOCAL STORAGE API
+
+// FIRESTORE
 
 export function getCities() {
   return window.JSON.parse(localStorage.getItem('cities')) || []
@@ -7,6 +8,14 @@ export function getCities() {
 
 function updateCities(newCities) {
   window.localStorage.setItem("cities", JSON.stringify(newCities))
+}
+
+export function deleteCity(cityId) {
+  const cities = getCities();
+
+  const newCities = cities.filter((city) => city.id !== Number(cityId));
+
+  updateCities(newCities);
 }
 
 function massageCity(city) {
@@ -78,14 +87,6 @@ export async function saveCity(cityDetails) {
   } catch(error) {
     throw error
   }
-}
-
-export function deleteCity(cityId) {
-  const cities = getCities()
-
-  const newCities = cities.filter(city => city.id !== Number(cityId))
-
-  updateCities(newCities)
 }
 
 // FETCHING DATA FROM OPEN WEATHER API
