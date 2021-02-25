@@ -118,7 +118,7 @@ async function fetchCity(cityObj) {
 
 export function fetchWeatherData(cities) {
   // Returns an array of cities as objects with weather data inside
-  if (cities.length === 0) return
+  // if (cities.length === 0) return
 
   return Promise.all(cities.map(city => fetchCity(city)))
 }
