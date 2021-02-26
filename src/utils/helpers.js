@@ -93,14 +93,10 @@ export async function saveCity(cityDetails) {
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
-async function fetchCity(cityObj) {
+export async function fetchCity({city, country}) {
   const ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
-  // Check whether city is a string (used to save the city) or an object (saved city)
-  const isInitialFetch = cityObj.id === undefined && true
-  // If country was not entered correctly, country will be equal no NULL
-  const query = isInitialFetch
-    ? `q=${cityObj.city}${cityObj.countryCode ? `,${cityObj.countryCode}` : ''}`
-    : `id=${cityObj.id}`;
+  const countryCode = getCountryCode(country)
+  const query = `q=${city}${countryCode ? `,${countryCode}` : ''}`;
 
   const response = await fetch(
     window.encodeURI(`${ENDPOINT}?${query}&appid=${API_KEY}&units=metric`)
@@ -110,15 +106,13 @@ async function fetchCity(cityObj) {
     const result = await response.json()
     throw new Error(formatMessage(result.message))
   } else {
-    const result = await response.json()
+    const cityData = await response.json()
 
-    return result;
+    return cityData;
   }
 }
 
 export function fetchWeatherData(cities) {
-  // Returns an array of cities as objects with weather data inside
-  // if (cities.length === 0) return
 
   return Promise.all(cities.map(city => fetchCity(city)))
 }

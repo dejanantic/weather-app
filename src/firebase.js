@@ -14,4 +14,5 @@ const app = firebase.initializeApp({
 export const auth = app.auth();
 export const db = app.firestore();
 export const { serverTimestamp } = firebase.firestore.FieldValue;
+export const { documentId } = firebase.firestore.FieldPath;
 export default app;

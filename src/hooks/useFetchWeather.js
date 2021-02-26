@@ -63,7 +63,7 @@ export default function useFetchWeather() {
         const weatherData = await Promise.all(
           cities.map(async (city) => {
             const response = await fetch(
-              `${ENDPOINT}?id=${city.id}&appid=${API_KEY}&units=metric`
+              `${ENDPOINT}?id=${city.cityId}&appid=${API_KEY}&units=metric`
             );
             const data = await response.json();
 

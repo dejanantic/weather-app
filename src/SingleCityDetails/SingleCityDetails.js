@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from "react";
 import Details from "./Details/Details";
 import Loading from "../Loading/Loading";
 import Remove from "../Remove/Remove";
-import { fetchSingleCityDetails, getCityName } from "../utils/api";
+import { fetchSingleCityDetails, getCityName } from "../utils/helpers";
 import queryString from "query-string";
 import "./SingleCityDetails.css";
 
