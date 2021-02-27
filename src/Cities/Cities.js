@@ -7,7 +7,7 @@ export default function Cities({ weatherData }) {
     <>
       <ul className="cities-grid">
         {weatherData.map((city) => (
-          <li className="cities-grid__city" key={city.id}>
+          <li className="cities-grid__city" key={city.docId}>
             <CityTile city={city} />
           </li>
         ))}

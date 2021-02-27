@@ -1,4 +1,4 @@
-import { db, serverTimestamp, documentId } from '../firebase'
+import { db, serverTimestamp } from '../firebase'
 
 const citiesRef = db.collection("cities")
 
@@ -12,30 +12,16 @@ export function streamCities(userId, observer) {
   return citiesRef.where("owner", "==", userId).onSnapshot(observer);
 }
 
-// Fetch data
 export async function saveCity(data) {
   const docRef = await citiesRef.add({
-    name: data.name,
-    coord: data.coord, // tk koordinate mi niti ne rabijo
-    country: data.sys.country,
+    // TODO: if you don't need the commented lines, delete them
+    // name: data.name,
+    // coord: data.coord, //? Maybe the coorinates
+    // country: data.sys.country,
     cityId: data.id,
     owner: data.owner,
     created: serverTimestamp(),
   })
 
-  // Not the most efficient way, but considering the app is not going to hit
-  // rate limits, it is fine. Ideally I would provide my own UID for every
-  // document.
-  return docRef.update({
-    docId: docRef.id,
-  })
+  return docRef;
 }
-
-// TK DELETE THIS FUNCTION
-// export async function updateCity(id, data) {
-//   const docRef = await citiesRef.doc(id).update({
-//     coord: data.coord,
-//     country: data.country,
-//     cityId: data.id
-//   })
-// }

@@ -18,6 +18,7 @@ export default function Home() {
   const isWeatherDataEmpty = weatherData.length === 0;
 
   const handleCityListUpdate = (city) => {
+    // TODO: potentially fire an error here if we are trying to add a duplicate
     fetchCity(city)
       .then((cityData) => {
         saveCity({

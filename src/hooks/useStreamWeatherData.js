@@ -29,9 +29,6 @@ function streamWeatherDataReducer(state, action) {
 }
 
 export default function useStreamWeatherData() {
-  // 1. useReducer to manage state
-  // 2. fetch the weather data for the cities
-  // 3. observer is an object with next: and error: methods
   const {
     currentUser: { uid },
   } = useAuth();
@@ -56,7 +53,8 @@ export default function useStreamWeatherData() {
         const cities = [];
         querySnapshot.forEach((cityDoc) => {
           cities.push({
-            ...cityDoc.data(),
+            docId: cityDoc.id,
+            cityId: cityDoc.data().cityId,
           });
         });
 
@@ -67,14 +65,19 @@ export default function useStreamWeatherData() {
             );
             const cityWeather = await response.json();
 
-            return cityWeather;
+            //* Include the document id together with the weather data so that
+            //* every CityTile can have a unique key.
+            return {
+              docId: city.docId,
+              ...cityWeather,
+            };
           })
         );
 
         if (isMounted) {
           dispatch({
             type: "FETCH_SUCCESS",
-            payload: weatherData
+            payload: weatherData,
           })
         }
       },
@@ -87,10 +90,8 @@ export default function useStreamWeatherData() {
         }
       }
     });
-    // code goes here
 
     return () => {
-      console.log("Component unmounted mofooooooooo")
       unsubscribe();
       isMounted = false;
     };
