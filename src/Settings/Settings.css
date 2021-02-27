@@ -1,8 +1,6 @@
 .settings {
   width: 100%;
   max-width: var(--content-max-width);
-  display: flex;
-  flex-flow: column nowrap;
   color: var(--text-primary);
 }
 
@@ -19,10 +17,29 @@
   font-weight: 300;
 }
 
+.settings__sections {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 .settings__section {
   width: 100%;
   background: var(--background-placeholder);
   border-radius: var(--border-radius);
-  /* font-size: 1.6em; */
   padding: var(--test-padding);
+}
+
+@media screen and (min-width: 48em) {
+  .settings__sections {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .settings__update-profile {
+    flex: 0 1 50%;
+  }
+
+  .settings__manage-cities {
+    flex: 0 1 45%;
+  }
 }
