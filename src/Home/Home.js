@@ -6,19 +6,21 @@ import LastUpdate from "./LastUpdate/LastUpdate";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 import { fetchCity } from "../utils/helpers";
-import { saveCity as saveDB } from "../utils/databaseService"
+import { saveCity } from "../utils/databaseService"
 import useFetchWeather from "../hooks/useFetchWeather";
+import useStreamWeatherData from "../hooks/useStreamWeatherData"
 import { useAuth } from "../contexts/AuthContext";
 
 export default function Home() {
-  const [weatherData, loading, error] = useFetchWeather();
+  // const [weatherData, loading, error] = useFetchWeather();
+  const [weatherData, loading, error] = useStreamWeatherData();
   const { currentUser } = useAuth();
   const isWeatherDataEmpty = weatherData.length === 0;
 
   const handleCityListUpdate = (city) => {
     fetchCity(city)
       .then((cityData) => {
-        saveDB({
+        saveCity({
           owner: currentUser.uid,
           ...cityData
         })
@@ -29,7 +31,7 @@ export default function Home() {
     <>
       <Header handleCityListUpdate={handleCityListUpdate} />
       {loading ? (
-        <Loading loadingMessage="Loading cities" />
+        <Loading loadingMessage="Fetching weather data" />
       ) : (
         <>
           {isWeatherDataEmpty ? (

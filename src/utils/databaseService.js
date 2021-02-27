@@ -8,6 +8,10 @@ export async function getCitiesFromFirestore(userId) {
     .get()
 }
 
+export function streamCities(userId, observer) {
+  return citiesRef.where("owner", "==", userId).onSnapshot(observer);
+}
+
 // Fetch data
 export async function saveCity(data) {
   const docRef = await citiesRef.add({
