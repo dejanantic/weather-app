@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Header from "../Header/Header";
 import DeleteAccount from "./DeleteAccount/DeleteAccount";
-import './Settings.css'
+import UpdateProfile from "./UpdateProfile/UpdateProfile";
+import "./Settings.css";
 
 export default function Settings() {
   return (
@@ -13,20 +14,16 @@ export default function Settings() {
         </div>
         <section className="settings__update-profile">
           <h2 className="settings__setting-title">update profile</h2>
-          {/* Placeholder */}
-          <div className="settings__placeholder">
-            <p className="settings__placeholder-text">
-              Placeholder for profile info
-            </p>
+          <div className="settings__section">
+            <UpdateProfile />
           </div>
+          {/* Placeholder */}
         </section>
         <section className="settings__manage-cities">
           <h2 className="settings__setting-title">manage cities</h2>
           {/* Placeholder */}
-          <div className="settings__placeholder">
-            <p className="settings__placeholder-text">
-              Placeholder for cities
-            </p>
+          <div className="settings__section">
+            <p className="settings__section-text">Placeholder for cities</p>
           </div>
         </section>
         <section className="settings__delete-account">

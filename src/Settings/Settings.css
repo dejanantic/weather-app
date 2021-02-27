@@ -19,10 +19,10 @@
   font-weight: 300;
 }
 
-.settings__placeholder {
+.settings__section {
   width: 100%;
   background: var(--background-placeholder);
   border-radius: var(--border-radius);
-  font-size: 1.6em;
+  /* font-size: 1.6em; */
   padding: var(--test-padding);
 }
