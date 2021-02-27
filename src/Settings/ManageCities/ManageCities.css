@@ -1,0 +1,32 @@
+.manage-cities {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.manage-cities__city {
+  display: flex;
+  align-items: center;
+  padding: var(--city-tile-padding);
+  border: var(--border-manage-city);
+  border-radius: var(--border-radius-city-settings);
+}
+
+.manage-cities__city:not(:first-of-type) {
+  margin-top: 2em;
+}
+
+.manage-cities__city-name {
+  font-size: 1.6em;
+  margin-right: auto;
+}
+
+.manage-cities__delete-city {
+  font-size: 1.5em;
+  text-align: center;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  background-color: var(--background-red);
+  border-radius: var(--border-radious-delete-city);
+}

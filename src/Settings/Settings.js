@@ -3,6 +3,10 @@ import Header from "../Header/Header";
 import DeleteAccount from "./DeleteAccount/DeleteAccount";
 import UpdateProfile from "./UpdateProfile/UpdateProfile";
 import "./Settings.css";
+import ManageCities from "./ManageCities/ManageCities";
+
+// TODO: remove settings and add city icons
+// TODO: manage cities section
 
 export default function Settings() {
   return (
@@ -21,9 +25,8 @@ export default function Settings() {
           </section>
           <section className="settings__manage-cities">
             <h2 className="settings__setting-title">manage cities</h2>
-            {/* Placeholder */}
             <div className="settings__section">
-              <p className="settings__section-text">Placeholder for cities</p>
+              <ManageCities />
             </div>
           </section>
           <section className="settings__delete-account">

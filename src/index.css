@@ -35,9 +35,12 @@
   --border-input: 1px solid rgba(103, 175, 239, 0.3);
   --border-input-focus: 3px solid #67afef;
   --border-link: 3px solid var(--background-orangeyellow);
+  --border-manage-city: 1px solid rgba(255, 255, 255, 0.35);
   --border-signup-input: none;
   --border-signup-input-radius: 5px;
   --button-border-radius: 0.375em;
+  --border-radius-city-settings: 5px;
+  --border-radious-delete-city: 3px;
 
   /* Spacing */
   --city-tile-padding: 1.3em;

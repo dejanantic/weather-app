@@ -29,7 +29,7 @@
   padding: var(--test-padding);
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 34.875em) {
   .settings__sections {
     flex-flow: row wrap;
     justify-content: space-between;
@@ -41,5 +41,11 @@
 
   .settings__manage-cities {
     flex: 0 1 45%;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .settings__manage-cities {
+    flex: 0 1 40%;
   }
 }

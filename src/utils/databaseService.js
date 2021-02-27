@@ -15,7 +15,7 @@ export function streamCities(userId, observer) {
 export async function saveCity(data) {
   const docRef = await citiesRef.add({
     // TODO: if you don't need the commented lines, delete them
-    // name: data.name, //? Need this for the settings->cities
+    name: data.name,
     // coord: data.coord, //? Maybe the coorinates
     // country: data.sys.country,
     cityId: data.id,
@@ -24,4 +24,8 @@ export async function saveCity(data) {
   })
 
   return docRef;
+}
+
+export function deleteCity(docId) {
+  citiesRef.doc(docId).delete();
 }
