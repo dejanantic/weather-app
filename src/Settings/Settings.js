@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../Header/Header";
 import DeleteAccount from "./DeleteAccount/DeleteAccount";
 import UpdateProfile from "./UpdateProfile/UpdateProfile";
-import "./Settings.css";
 import ManageCities from "./ManageCities/ManageCities";
+import "./Settings.css";
 
 // TODO: remove settings and add city icons
-// TODO: manage cities section
 
 export default function Settings() {
   return (

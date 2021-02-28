@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <>
-      <Header handleCityListUpdate={handleCityListUpdate} />
+      <Header handleCityListUpdate={handleCityListUpdate} isHome />
       {loading ? (
         <Loading loadingMessage="Fetching weather data" />
       ) : (

@@ -7,7 +7,7 @@ import { FaCog, FaPlus, FaSignOutAlt } from "react-icons/fa";
 import "./Header.css";
 import { toast } from "react-toastify";
 
-export default function Header({ handleCityListUpdate }) {
+export default function Header({ handleCityListUpdate, isHome }) {
   const { logout } = useAuth();
   const history = useHistory();
   const formContainerRef = useRef(null);
@@ -32,7 +32,7 @@ export default function Header({ handleCityListUpdate }) {
 
       <nav className="header__nav">
         <ul className="header__nav-container">
-          <li className="header__nav-item">
+          {isHome && (<li className="header__nav-item">
             <button
               className="header__nav-button"
               onClick={() =>
@@ -41,7 +41,7 @@ export default function Header({ handleCityListUpdate }) {
             >
               <FaPlus id="add-city" className="header__icon" />
             </button>
-          </li>
+          </li>)}
           <li className="header__nav-item">
             <Link className="header__nav-link" to="/settings">
               <FaCog id="settings" className="header__icon" />
