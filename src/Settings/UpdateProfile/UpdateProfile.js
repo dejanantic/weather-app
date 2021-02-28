@@ -46,6 +46,8 @@ export default function UpdateProfile() {
       })
       .finally(() => {
         setLoading(false);
+        passwordRef.current.value = "";
+        passwordConfirmRef.current.value = "";
       })
   }
 
