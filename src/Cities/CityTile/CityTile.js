@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import WeatherIcon from "../../WeatherIcon/WeatherIcon";
 import "./CityTile.css";
 
-export default function CityTile({
-  city: { name, weather, main, id: cityId },
-}) {
+export default function CityTile({ city }) {
+  const { name, weather, main, id: cityId } = city;
   const { icon, id } = weather[0];
   const Icon = WeatherIcon(icon, id);
 

@@ -1,0 +1,51 @@
+.settings {
+  width: 100%;
+  max-width: var(--content-max-width);
+  color: var(--text-primary);
+}
+
+.settings__title {
+  font-size: 3.2em;
+  text-align: center;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.settings__setting-title {
+  font-size: 2.4em;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.settings__sections {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.settings__section {
+  width: 100%;
+  background: var(--background-placeholder);
+  border-radius: var(--border-radius);
+  padding: var(--test-padding);
+}
+
+@media screen and (min-width: 34.875em) {
+  .settings__sections {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .settings__update-profile {
+    flex: 0 1 50%;
+  }
+
+  .settings__manage-cities {
+    flex: 0 1 45%;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .settings__manage-cities {
+    flex: 0 1 40%;
+  }
+}

@@ -1,0 +1,78 @@
+.login {
+  margin: auto;
+  max-width: 40em;
+}
+
+.login__header {
+  font-size: 1.6em;
+  margin-bottom: 0.3em;
+}
+
+.login__form-container {
+}
+
+.login__form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.login__form-group {
+  margin-top: 2em;
+}
+
+.login__form-control {
+  width: 100%;
+  font-size: 1.6em;
+  padding: 0.8em 0.5em;
+  border: none;
+  border-radius: var(--border-signup-input-radius);
+  outline: none;
+}
+
+.login__form-submit {
+  width: 100%;
+  padding: 1em 0;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--text-dark);
+  background: none;
+  border: none;
+  border-radius: var(--border-signup-input-radius);
+  text-transform: capitalize;
+  background-color: var(--background-btn-main);
+  cursor: pointer;
+}
+
+.login__form-submit:disabled {
+  cursor: not-allowed;
+  background-color: var(--background-btn-disabled);
+  color: var(--text-btn-disabled);
+}
+
+.login__divider {
+  margin: 2.5em 0 2em;
+  background-color: var(--background-white);
+  height: var(--signup-divider-height);
+  opacity: var(--signup-divider-opacity);
+}
+
+.login__text {
+  font-size: 1.4em;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.login__signup-link,
+.login__forgot-link {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-bottom: var(--border-link);
+  padding-bottom: 2px;
+  transition: border 0.2s ease-out;
+}
+
+.login__signup-link:hover,
+.login__forgot-link:hover {
+  border-width: 6px;
+}

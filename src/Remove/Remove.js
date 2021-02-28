@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { deleteCity } from "../utils/api";
+import { deleteCity } from "../utils/helpers";
 import "./Remove.css";
 
 export default function Remove({ id }) {

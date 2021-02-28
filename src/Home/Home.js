@@ -1,37 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import Header from "../Header/Header";
 import Cities from "../Cities/Cities";
 import Welcome from "./Welcome/Welcome";
 import LastUpdate from "./LastUpdate/LastUpdate";
-import { ToastContainer, toast } from "react-toastify";
-import { getCities, saveCity } from "../utils/api";
-// import "./Home.css";
-import "react-toastify/dist/ReactToastify.css";
-import "./CustomToast.css";
+import Loading from "../Loading/Loading";
+import { toast } from "react-toastify";
+import { fetchCity } from "../utils/helpers";
+import { saveCity } from "../utils/databaseService"
+import useFetchWeather from "../hooks/useFetchWeather";
+import useStreamWeatherData from "../hooks/useStreamWeatherData"
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Home() {
-  const [cityList, setCityList] = useState(() => getCities());
+  // const [weatherData, loading, error] = useFetchWeather();
+  const [weatherData, loading, error] = useStreamWeatherData();
+  const { currentUser } = useAuth();
+  const isWeatherDataEmpty = weatherData.length === 0;
 
   const handleCityListUpdate = (city) => {
-    saveCity(city)
-      .then(() => setCityList(getCities()))
-      .catch((error) => toast.info(error.message));
+    // TODO: potentially fire an error here if we are trying to add a duplicate
+    fetchCity(city)
+      .then((cityData) => {
+        saveCity({
+          owner: currentUser.uid,
+          ...cityData
+        })
+      })
   };
-
-  const isCityListEmpty = cityList.length === 0 ? true : false;
 
   return (
     <>
-      <Header handleCityListUpdate={handleCityListUpdate} />
-      {isCityListEmpty ? (
-        <Welcome />
+      <Header handleCityListUpdate={handleCityListUpdate} isHome />
+      {loading ? (
+        <Loading loadingMessage="Fetching weather data" />
       ) : (
         <>
-          <Cities cityList={cityList} />
-          <LastUpdate />
+          {isWeatherDataEmpty ? (
+              <Welcome />
+          ) : (
+            <>
+              <Cities weatherData={weatherData} />
+              <LastUpdate />
+            </>
+          )}
         </>
       )}
-      <ToastContainer position="bottom-right" />
     </>
   );
 }
