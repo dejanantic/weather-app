@@ -62,7 +62,7 @@ export default function ManageCities() {
         <Loading loadingMessage="Loading cities" />
       ) : (
         cities.length === 0 ? (
-          <li>No cities</li>
+          <li className="manage-cities__empty">No cities</li>
         ) : (
           cities.map((city) => {
           return (

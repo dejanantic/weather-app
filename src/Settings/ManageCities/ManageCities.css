@@ -33,3 +33,7 @@
   border: none;
   cursor: pointer;
 }
+
+.manage-cities__empty {
+  font-size: 1.6em;
+}
