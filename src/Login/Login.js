@@ -24,9 +24,8 @@ export default function Login() {
     } catch (e) {
       toast.error(e.message);
       setError(e.message);
+      setLoading(false);
     }
-
-    setLoading(false);
   }
 
   return (
