@@ -4,6 +4,7 @@
   display: flex;
   justify-content: flex-end;
   padding-top: 0.5em;
+  margin-top: auto;
 }
 
 @media screen and (max-width: 19.6875em) {
