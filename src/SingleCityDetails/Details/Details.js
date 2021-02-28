@@ -64,12 +64,12 @@ function WeatherForecastHourly({ weather }) {
   );
 }
 
-export default function Details({ cityName: { name, country }, cityData }) {
+export default function Details({ cityName: { name, country }, weatherData }) {
   const {
     current: currentWeather,
     daily: dailyWeather,
     hourly: hourlyWeather,
-  } = cityData;
+  } = weatherData;
 
   const todaysWeather = dailyWeather[0];
   const nextFiveDays = dailyWeather.slice(1, -2);

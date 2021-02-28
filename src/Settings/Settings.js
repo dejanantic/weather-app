@@ -5,8 +5,6 @@ import UpdateProfile from "./UpdateProfile/UpdateProfile";
 import ManageCities from "./ManageCities/ManageCities";
 import "./Settings.css";
 
-// TODO: remove settings and add city icons
-
 export default function Settings() {
   return (
     <>

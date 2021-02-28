@@ -32,16 +32,18 @@ export default function Header({ handleCityListUpdate, isHome }) {
 
       <nav className="header__nav">
         <ul className="header__nav-container">
-          {isHome && (<li className="header__nav-item">
-            <button
-              className="header__nav-button"
-              onClick={() =>
-                formContainerRef.current.querySelector("#city").focus()
-              }
-            >
-              <FaPlus id="add-city" className="header__icon" />
-            </button>
-          </li>)}
+          {isHome && (
+            <li className="header__nav-item">
+              <button
+                className="header__nav-button"
+                onClick={() =>
+                  formContainerRef.current.querySelector("#city").focus()
+                }
+              >
+                <FaPlus id="add-city" className="header__icon" />
+              </button>
+            </li>
+          )}
           <li className="header__nav-item">
             <Link className="header__nav-link" to="/settings">
               <FaCog id="settings" className="header__icon" />

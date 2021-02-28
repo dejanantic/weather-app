@@ -1,8 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import Details from "./Details/Details";
 import Loading from "../Loading/Loading";
-import Remove from "../Remove/Remove";
-import { fetchSingleCityDetails, getCityName } from "../utils/helpers";
+import { fetchSingleCityDetails } from "../utils/helpers";
 import queryString from "query-string";
 import "./SingleCityDetails.css";
 
@@ -10,7 +9,7 @@ function singleCityReducer(state, action) {
   if (action.type === "success") {
     return {
       ...state,
-      cityData: action.cities,
+      cityData: action.data,
       loading: false,
     };
   } else if (action.type === "error") {
@@ -26,7 +25,6 @@ function singleCityReducer(state, action) {
 
 export default function SingleCityDetail() {
   const { id } = queryString.parse(window.location.search);
-  const { name, country } = getCityName(id);
   const [{ cityData, loading, error }, dispatch] = useReducer(
     singleCityReducer,
     { cityData: null, loading: true, error: null }
@@ -34,7 +32,7 @@ export default function SingleCityDetail() {
 
   useEffect(() => {
     fetchSingleCityDetails(id)
-      .then((data) => dispatch({ type: "success", cities: data }))
+      .then((data) => dispatch({ type: "success", data }))
       .catch((error) => dispatch({ type: "error", message: error.message }));
   }, [id]);
 
@@ -56,8 +54,10 @@ export default function SingleCityDetail() {
         <Loading loadingMessage="Loading city details" />
       ) : (
         <div className="city-details">
-          <Details cityName={{ name, country }} cityData={cityData} />
-          <Remove id={id} />
+          <Details
+            cityName={{ name: cityData.name, country: cityData.country }}
+            weatherData={cityData.weatherData}
+          />
         </div>
       )}
     </>
