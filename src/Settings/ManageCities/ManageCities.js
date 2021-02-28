@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../../Loading/Loading";
+import { toast } from "react-toastify";
+import { FaTrashAlt } from "react-icons/fa"
 import { useAuth } from "../../contexts/AuthContext";
 import { streamCities, deleteCity } from "../../utils/databaseService";
 import "./ManageCities.css";
-
-// 1. Get cities from database
 
 export default function ManageCities() {
   const {
@@ -37,6 +37,13 @@ export default function ManageCities() {
           setLoading(false);
         }
       },
+      error: (error) => {
+        if (isMounted) {
+          toast.error(error.message);
+          setError(error.message);
+          setLoading(false);
+        }
+      }
     });
 
     return () => {
@@ -45,13 +52,19 @@ export default function ManageCities() {
     };
   }, [uid]);
 
+  if (error) {
+    <p>{error}. Try refreshing the page.</p>
+  }
+
   return (
     <ul className="manage-cities">
-      {loading && <Loading loadingMessage="Fetching cities" />}
-      {cities.length === 0 ? (
-        <li>No cities.</li>
+      {loading ? (
+        <Loading loadingMessage="Loading cities" />
       ) : (
-        cities.map((city) => {
+        cities.length === 0 ? (
+          <li>No cities</li>
+        ) : (
+          cities.map((city) => {
           return (
             <li className="manage-cities__city" key={city.docId}>
               <span className="manage-cities__city-name">{city.name}</span>
@@ -61,11 +74,12 @@ export default function ManageCities() {
                   deleteCity(city.docId);
                 }}
               >
-                &times;
+                <FaTrashAlt />
               </button>
             </li>
           );
         })
+        )
       )}
     </ul>
   );
