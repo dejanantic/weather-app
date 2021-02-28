@@ -39,10 +39,6 @@ export async function fetchCity({ city, country }) {
   }
 }
 
-export function fetchWeatherData(cities) {
-  return Promise.all(cities.map((city) => fetchCity(city)));
-}
-
 export async function fetchSingleCityDetails(id) {
   const FIRST_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
   const SECOND_ENDPOINT = "https://api.openweathermap.org/data/2.5/onecall";
@@ -95,7 +91,6 @@ export function getTimeStamp() {
 }
 
 const exports = {
-  fetchWeatherData,
   fetchSingleCityDetails,
   getTimeStamp,
 };

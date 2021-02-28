@@ -13,7 +13,6 @@ export default function DeleteAccount() {
       );
       if (confirmation === currentUser.email) {
         await currentUser.delete();
-        console.log("account deleted");
       } else if (confirmation === null) {
         return
       } else if (confirmation === '') {

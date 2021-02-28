@@ -97,6 +97,5 @@ export default function useStreamWeatherData() {
     };
   }, [uid]);
 
-  console.log(weatherData, loading, error);
   return [weatherData, loading, error]
 }

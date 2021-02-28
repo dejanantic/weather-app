@@ -41,7 +41,6 @@ export default function UpdateProfile() {
         toast.success("Profile updated")
       })
       .catch((error) => {
-        console.log(error.message)
         toast.error("Failed to update account")
       })
       .finally(() => {
