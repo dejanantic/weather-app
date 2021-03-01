@@ -32,7 +32,7 @@ export default function Form({ handleCityListUpdate }) {
           type="text"
           name="city"
           id="city"
-          placeholder="city"
+          placeholder="City"
           value={userInput.city}
           onChange={handleChange}
         />
@@ -41,7 +41,7 @@ export default function Form({ handleCityListUpdate }) {
           type="text"
           name="country"
           id="country"
-          placeholder="country"
+          placeholder="Country"
           value={userInput.country}
           onChange={handleChange}
         />
