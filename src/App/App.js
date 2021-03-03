@@ -14,6 +14,7 @@ const SingleCityDetails = React.lazy(() => import("../SingleCityDetails/SingleCi
 const Signup = React.lazy(() => import("../Signup/Signup"));
 const Login = React.lazy(() => import("../Login/Login"));
 const ForgotPassword = React.lazy(() => import("../ForgotPassword/ForgotPassword"));
+const PageNotFound = React.lazy(() => import("../PageNotFound/PageNotFound"));
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ export default function App() {
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
-              <Route render={() => <h1>404 Page not found</h1>} />
+              <Route component={PageNotFound} />
             </Switch>
           </Suspense>
         </AuthProvider>
