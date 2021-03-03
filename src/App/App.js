@@ -20,7 +20,7 @@ export default function App() {
     <div className="container">
       <Router>
         <AuthProvider>
-          <Suspense fallback={<Loading loadingMessage="Loading app" />}>
+          <Suspense fallback={<Loading loadingMessage="Loading" />}>
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <PrivateRoute path="/settings" component={Settings} />
