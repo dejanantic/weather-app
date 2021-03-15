@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Loading from "../../Loading/Loading";
 import { toast } from "react-toastify";
 import { FaTrashAlt } from "react-icons/fa"
-import { useAuth } from "../../contexts/AuthContext";
-import { streamCities, deleteCity } from "../../utils/databaseService";
+import { useAuth } from "../../../contexts/AuthContext";
+import { streamCities, deleteCity } from "../../../utils/databaseService";
 import "./ManageCities.css";
 
 export default function ManageCities() {

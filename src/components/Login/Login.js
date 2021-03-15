@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import Logo from "../Logo/Logo";
 import { toast } from "react-toastify";
 import "./Login.css";

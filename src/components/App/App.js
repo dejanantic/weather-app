@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { AuthProvider } from "../contexts/AuthContext";
+import { AuthProvider } from "../../contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import "react-toastify/dist/ReactToastify.css";

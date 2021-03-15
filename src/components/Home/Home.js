@@ -5,10 +5,10 @@ import Welcome from "./Welcome/Welcome";
 import LastUpdate from "./LastUpdate/LastUpdate";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
-import { fetchCity } from "../utils/helpers";
-import { saveCity } from "../utils/databaseService";
-import useStreamWeatherData from "../hooks/useStreamWeatherData";
-import { useAuth } from "../contexts/AuthContext";
+import { fetchCity } from "../../utils/helpers";
+import { saveCity } from "../../utils/databaseService";
+import useStreamWeatherData from "../../hooks/useStreamWeatherData";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Home() {
   const [weatherData, loading, error] = useStreamWeatherData();

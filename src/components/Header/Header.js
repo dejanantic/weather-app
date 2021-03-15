@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import Form from "../Form/Form";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { FaCog, FaPlus, FaSignOutAlt } from "react-icons/fa";
 import "./Header.css";
 import { toast } from "react-toastify";

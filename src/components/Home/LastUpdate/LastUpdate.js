@@ -1,5 +1,5 @@
 import React from "react";
-import { getTimeStamp } from "../../utils/helpers";
+import { getTimeStamp } from "../../../utils/helpers";
 import "./LastUpdate.css";
 
 export default function LastUpdate() {
