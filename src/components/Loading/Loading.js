@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import "./Loading.css";
 
-export default function Loading({ loadingMessage = "Loading", speed = 600 }) {
+function Loading({ loadingMessage = "Loading", speed = 600 }) {
   const initialMessage = loadingMessage;
   const [message, setMessage] = useState(initialMessage);
   const id = useRef();
@@ -18,3 +19,10 @@ export default function Loading({ loadingMessage = "Loading", speed = 600 }) {
 
   return <div className="loading">{message}</div>;
 }
+
+Loading.propTypes = {
+  loadingMessage: PropTypes.string,
+  speed: PropTypes.number,
+};
+
+export default Loading;

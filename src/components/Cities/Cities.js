@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import CityTile from "./CityTile/CityTile";
 import "./Cities.css";
 
-export default function Cities({ weatherData }) {
+function Cities({ weatherData }) {
   return (
     <>
       <ul className="cities-grid">
@@ -15,3 +16,9 @@ export default function Cities({ weatherData }) {
     </>
   );
 }
+
+Cities.propTypes = {
+  weatherData: PropTypes.array.isRequired,
+};
+
+export default Cities;

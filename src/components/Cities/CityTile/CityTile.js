@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import WeatherIcon from "../../WeatherIcon/WeatherIcon";
 import "./CityTile.css";
 
-export default function CityTile({ city }) {
+function CityTile({ city }) {
   const { name, weather, main, id: cityId } = city;
   const { icon, id } = weather[0];
   const Icon = WeatherIcon(icon, id);
@@ -27,3 +28,9 @@ export default function CityTile({ city }) {
     </Link>
   );
 }
+
+CityTile.propTypes = {
+  city: PropTypes.object.isRequired,
+};
+
+export default CityTile;

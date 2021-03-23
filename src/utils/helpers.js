@@ -40,6 +40,8 @@ export async function fetchCity({ city, country }) {
 }
 
 export async function fetchSingleCityDetails(id) {
+  // We have to make calls to two API's because the second endpoint does
+  // not contain the name and the country code of the city.
   const FIRST_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
   const SECOND_ENDPOINT = "https://api.openweathermap.org/data/2.5/onecall";
   try {

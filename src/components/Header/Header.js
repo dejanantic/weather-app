@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 import Logo from "../Logo/Logo";
 import Form from "../Form/Form";
 import { useAuth } from "../../contexts/AuthContext";
@@ -7,7 +8,7 @@ import { FaCog, FaPlus, FaSignOutAlt } from "react-icons/fa";
 import "./Header.css";
 import { toast } from "react-toastify";
 
-export default function Header({ handleCityListUpdate, isHome }) {
+function Header({ handleCityListUpdate, isHome }) {
   const { logout } = useAuth();
   const history = useHistory();
   const formContainerRef = useRef(null);
@@ -63,3 +64,10 @@ export default function Header({ handleCityListUpdate, isHome }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  handleCityListUpdate: PropTypes.func,
+  isHome: PropTypes.bool,
+};
+
+export default Header;

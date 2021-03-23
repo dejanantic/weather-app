@@ -6,13 +6,13 @@ import queryString from "query-string";
 import "./SingleCityDetails.css";
 
 function singleCityReducer(state, action) {
-  if (action.type === "success") {
+  if (action.type === "FETCH_SUCCESS") {
     return {
       ...state,
       cityData: action.data,
       loading: false,
     };
-  } else if (action.type === "error") {
+  } else if (action.type === "FETCH_ERROR") {
     return {
       ...state,
       error: action.message,
@@ -32,8 +32,10 @@ export default function SingleCityDetail() {
 
   useEffect(() => {
     fetchSingleCityDetails(id)
-      .then((data) => dispatch({ type: "success", data }))
-      .catch((error) => dispatch({ type: "error", message: error.message }));
+      .then((data) => dispatch({ type: "FETCH_SUCCESS", data }))
+      .catch((error) =>
+        dispatch({ type: "FETCH_ERROR", message: error.message })
+      );
   }, [id]);
 
   if (error !== null) {
@@ -43,7 +45,7 @@ export default function SingleCityDetail() {
           There was a problem getting city's data. Please try refreshing the
           page.
         </p>
-        <pre>error</pre>
+        <pre>{error}</pre>
       </>
     );
   }
@@ -55,7 +57,8 @@ export default function SingleCityDetail() {
       ) : (
         <div className="city-details">
           <Details
-            cityName={{ name: cityData.name, country: cityData.country }}
+            name={cityData.name}
+            country={cityData.country}
             weatherData={cityData.weatherData}
           />
         </div>

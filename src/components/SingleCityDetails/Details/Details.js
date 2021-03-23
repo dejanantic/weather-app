@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import daysjs from "dayjs";
 import { Link } from "react-router-dom";
 import WeatherIcon from "../../WeatherIcon/WeatherIcon";
@@ -46,6 +47,10 @@ function WeatherForecastDaily({ weather }) {
   );
 }
 
+WeatherForecastDaily.propTypes = {
+  weather: PropTypes.object.isRequired,
+};
+
 function WeatherForecastHourly({ weather }) {
   const { temp, dt: timestamp } = weather;
   const period = daysjs(timestamp * 1000).format("HH:mm");
@@ -64,7 +69,11 @@ function WeatherForecastHourly({ weather }) {
   );
 }
 
-export default function Details({ cityName: { name, country }, weatherData }) {
+WeatherForecastHourly.propTypes = {
+  weather: PropTypes.object.isRequired,
+};
+
+function Details({ name, country, weatherData }) {
   const {
     current: currentWeather,
     daily: dailyWeather,
@@ -95,7 +104,9 @@ export default function Details({ cityName: { name, country }, weatherData }) {
           </Link>
         </div>
         <div className="city-details__header-group">
-          <h1 className="city-details__name">{name}, {country}</h1>
+          <h1 className="city-details__name">
+            {name}, {country}
+          </h1>
           <p className="city-details__date">
             <time dateTime={daysjs(timestamp).format("YYYY-MM-DD")}>
               {daysjs(timestamp).format("dddd D MMMM")}
@@ -193,3 +204,11 @@ export default function Details({ cityName: { name, country }, weatherData }) {
     </>
   );
 }
+
+Details.propTypes = {
+  weatherData: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+};
+
+export default Details;

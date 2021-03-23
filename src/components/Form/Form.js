@@ -1,23 +1,24 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./Form.css";
 
-export default function Form({ handleCityListUpdate }) {
+function Form({ handleCityListUpdate }) {
   const [userInput, setUserInput] = useState({
     city: "",
-    country: ""
+    country: "",
   });
 
   const handleChange = (event) => {
     const value = event.target.value;
-    setUserInput(state => ({
+    setUserInput((state) => ({
       ...state,
-      [event.target.name]: value
-    }))
+      [event.target.name]: value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleCityListUpdate(userInput)
+    handleCityListUpdate(userInput);
     setUserInput({
       city: "",
       country: "",
@@ -55,3 +56,9 @@ export default function Form({ handleCityListUpdate }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  handleCityListUpdate: PropTypes.func,
+};
+
+export default Form;
